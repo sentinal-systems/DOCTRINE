@@ -1,0 +1,148 @@
+{
+  "project": "World War Legion V1",
+  "sourceDir": "Home Projects",
+  "path": "D:\\Home Projects\\World War Legion V1",
+  "scannedAt": "2026-10-14T18:46:42.391Z",
+  "census": {
+    "files": 400,
+    "codeFiles": 174,
+    "filesRead": 120,
+    "exts": {
+      ".txt": 18,
+      ".vcxproj": 29,
+      ".filters": 26,
+      ".cmake": 5,
+      ".bin": 2,
+      ".c": 2,
+      ".exe": 3,
+      ".obj": 3,
+      ".recipe": 6,
+      ".tlog": 37,
+      ".lastbuildstate": 7,
+      ".cpp": 52,
+      ".check_cache": 1,
+      ".yaml": 1,
+      ".rule": 1,
+      ".stamp": 1,
+      ".depend": 1,
+      ".list": 1,
+      ".json": 3,
+      ".sln": 4,
+      "(none)": 20,
+      ".h": 33,
+      ".md": 21,
+      ".cs": 50,
+      ".py": 11,
+      ".csproj": 1,
+      ".dll": 1,
+      ".resx": 1,
+      ".mm": 7,
+      ".frag": 2,
+      ".vert": 2,
+      ".sh": 1,
+      ".gradle": 3,
+      ".xml": 1,
+      ".kt": 1,
+      ".toml": 1,
+      ".pbxproj": 2,
+      ".plist": 2,
+      ".storyboard": 2,
+      ".bat": 26,
+      ".emscripten": 6,
+      ".html": 1,
+      ".lib": 2
+    }
+  },
+  "package": null,
+  "surfaces": [
+    "api/server",
+    "native (.NET)",
+    "native (C/C++)",
+    "python"
+  ],
+  "pipeline": {
+    "input": [
+      "readFile|createReadStream|File\\.Read|ifstr",
+      "process\\.argv|commander|yargs|argparse|arg",
+      "process\\.stdin|std::cin|Console\\.Read",
+      "serialport|SerialPort|waveIn|Wasapi|WASAPI"
+    ],
+    "transform": [
+      "onnxruntime|tensorflow|tesseract|ollama|op",
+      "\\.map\\(|\\.filter\\(|\\.reduce\\(|foreach|std:",
+      "score|scor|inference|infer|predict|analy[s",
+      "wgsl|webgpu|getContext\\(['\"]webgl",
+      "glsl|shader|hlsl|cuda|opencl|d3d11|directx",
+      "\\.wasm|\\.wat|WebAssembly"
+    ],
+    "output": [
+      "writeFile|createWriteStream|File\\.Write|of",
+      "console\\.(log|table)|std::cout|printf|Cons",
+      "document\\.|getElementById|canvas|getContex"
+    ]
+  },
+  "planes": {
+    "p0_sovereignCore": {
+      "evidence": [
+        "174 code files",
+        "surfaces: api/server, native (.NET), native (C/C++), python",
+        "structured core types"
+      ],
+      "present": true
+    },
+    "p1_integrationSurface": {
+      "evidence": [
+        "remote calls: https?:\\/\\/(?!localhost|127\\.), api\\.|endpoint|\\/v\\d\\/"
+      ],
+      "present": true
+    },
+    "p2_operatorPolicy": {
+      "evidence": [
+        "\\.env|config\\.(json|yaml|yml|toml|ini)",
+        "--config|getenv|process\\.env|GetEnvironmen"
+      ],
+      "present": true
+    },
+    "p3_hybridExecution": {
+      "evidence": [
+        "wasm",
+        "gpu/shaders",
+        "local compute + remote input"
+      ],
+      "present": true
+    }
+  },
+  "degradationEvidence": [
+    "fallback",
+    "unavailable",
+    "offline",
+    "catch\\s*\\(|try\\s*\\{|FAILED\\(",
+    "timeout",
+    "unreachable|return nullptr|return false"
+  ],
+  "contracts": [
+    "interface \\w+|type \\w+ =|public (class|int",
+    "ipcMain\\.handle|app\\.(get|post|put|delete)"
+  ],
+  "truthFlags": [
+    "version",
+    "health|status",
+    "error|errorHandler|HRESULT"
+  ],
+  "admission": {
+    "four-planes-nameable": "found",
+    "degrades-honestly": "found",
+    "contracts-not-internals": "found",
+    "respects-operator-policy": "found",
+    "standalone-before-connected": "found",
+    "pipeline-discoverable": "found"
+  },
+  "classSuggestion": "engine",
+  "verdict": "promote-candidate",
+  "reasons": [
+    "6/6 admission criteria found",
+    "degradation evidence present",
+    "class hint: engine"
+  ],
+  "confidence": "auto-scan inference — adapter or operator review required before registry"
+}

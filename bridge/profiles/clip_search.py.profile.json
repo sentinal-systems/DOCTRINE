@@ -1,0 +1,71 @@
+{
+  "project": "clip_search.py",
+  "sourceDir": "CascadeProjects",
+  "path": "C:\\Users\\htsou\\CascadeProjects\\clip_search.py",
+  "scannedAt": "2026-10-14T18:46:25.602Z",
+  "census": {
+    "files": 1,
+    "codeFiles": 1,
+    "filesRead": 2,
+    "exts": {
+      ".py": 1
+    }
+  },
+  "package": null,
+  "surfaces": [
+    "python"
+  ],
+  "pipeline": {
+    "input": [
+      "readFile|createReadStream|File\\.Read|ifstr"
+    ],
+    "transform": [
+      "onnxruntime|tensorflow|tesseract|ollama|op",
+      "score|scor|inference|infer|predict|analy[s"
+    ],
+    "output": [
+      "console\\.(log|table)|std::cout|printf|Cons"
+    ]
+  },
+  "planes": {
+    "p0_sovereignCore": {
+      "evidence": [
+        "1 code files",
+        "surfaces: python"
+      ],
+      "present": false
+    },
+    "p1_integrationSurface": {
+      "evidence": [],
+      "present": false
+    },
+    "p2_operatorPolicy": {
+      "evidence": [],
+      "present": false
+    },
+    "p3_hybridExecution": {
+      "evidence": [],
+      "present": false
+    }
+  },
+  "degradationEvidence": [
+    "unreachable|return nullptr|return false"
+  ],
+  "contracts": [],
+  "truthFlags": [],
+  "admission": {
+    "four-planes-nameable": "partial",
+    "degrades-honestly": "partial",
+    "contracts-not-internals": "absent",
+    "respects-operator-policy": "absent",
+    "standalone-before-connected": "partial",
+    "pipeline-discoverable": "found"
+  },
+  "classSuggestion": "module",
+  "verdict": "reference",
+  "reasons": [
+    "1 found / 3 partial / 2 absent on admission test",
+    "real pipeline but doctrine gaps — useful fragments, not a product yet"
+  ],
+  "confidence": "auto-scan inference — adapter or operator review required before registry"
+}

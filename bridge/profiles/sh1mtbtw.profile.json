@@ -1,0 +1,99 @@
+{
+  "project": "sh1mtbtw",
+  "sourceDir": "CascadeProjects",
+  "path": "C:\\Users\\htsou\\CascadeProjects\\sh1mtbtw",
+  "scannedAt": "2026-10-14T18:46:17.797Z",
+  "census": {
+    "files": 400,
+    "codeFiles": 50,
+    "filesRead": 50,
+    "exts": {
+      ".prefab": 1,
+      ".meta": 84,
+      ".unity": 2,
+      ".cs": 50,
+      ".csproj": 2,
+      ".inputactions": 1,
+      ".asset": 8,
+      ".png": 1,
+      ".wlt": 1,
+      ".slnx": 1,
+      "(none)": 1,
+      ".apiupaterconfigs": 248
+    }
+  },
+  "package": null,
+  "surfaces": [
+    "native (.NET)"
+  ],
+  "pipeline": {
+    "input": [
+      "readFile|createReadStream|File\\.Read|ifstr"
+    ],
+    "transform": [
+      "\\.map\\(|\\.filter\\(|\\.reduce\\(|foreach|std:",
+      "score|scor|inference|infer|predict|analy[s",
+      "glsl|shader|hlsl|cuda|opencl|d3d11|directx",
+      "\\.wasm|\\.wat|WebAssembly"
+    ],
+    "output": [
+      "writeFile|createWriteStream|File\\.Write|of",
+      "document\\.|getElementById|canvas|getContex"
+    ]
+  },
+  "planes": {
+    "p0_sovereignCore": {
+      "evidence": [
+        "50 code files",
+        "surfaces: native (.NET)",
+        "structured core types"
+      ],
+      "present": true
+    },
+    "p1_integrationSurface": {
+      "evidence": [],
+      "present": false
+    },
+    "p2_operatorPolicy": {
+      "evidence": [
+        "settings\\.|Settings\\.|appsettings"
+      ],
+      "present": true
+    },
+    "p3_hybridExecution": {
+      "evidence": [
+        "wasm",
+        "gpu/shaders"
+      ],
+      "present": true
+    }
+  },
+  "degradationEvidence": [
+    "fallback",
+    "catch\\s*\\(|try\\s*\\{|FAILED\\(",
+    "unreachable|return nullptr|return false"
+  ],
+  "contracts": [
+    "interface \\w+|type \\w+ =|public (class|int"
+  ],
+  "truthFlags": [
+    "health|status",
+    "error|errorHandler|HRESULT"
+  ],
+  "admission": {
+    "four-planes-nameable": "found",
+    "degrades-honestly": "found",
+    "contracts-not-internals": "partial",
+    "respects-operator-policy": "found",
+    "standalone-before-connected": "found",
+    "pipeline-discoverable": "found"
+  },
+  "classSuggestion": "engine",
+  "verdict": "promote-candidate",
+  "reasons": [
+    "5/6 admission criteria found",
+    "degradation evidence present",
+    "class hint: engine"
+  ],
+  "confidence": "auto-scan inference — adapter or operator review required before registry"
+}

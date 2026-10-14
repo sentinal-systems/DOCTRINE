@@ -1,0 +1,75 @@
+{
+  "project": "MedievalToModern",
+  "sourceDir": "CascadeProjects",
+  "path": "C:\\Users\\htsou\\CascadeProjects\\MedievalToModern",
+  "scannedAt": "2026-10-14T18:46:12.585Z",
+  "census": {
+    "files": 23,
+    "codeFiles": 20,
+    "filesRead": 22,
+    "exts": {
+      ".svg": 1,
+      ".godot": 1,
+      ".md": 1,
+      ".gd": 20
+    }
+  },
+  "package": null,
+  "surfaces": [],
+  "pipeline": {
+    "input": [
+      "readFile|createReadStream|File\\.Read|ifstr"
+    ],
+    "transform": [
+      "score|scor|inference|infer|predict|analy[s"
+    ],
+    "output": [
+      "console\\.(log|table)|std::cout|printf|Cons",
+      "document\\.|getElementById|canvas|getContex",
+      "emit\\(|broadcast|Send\\(|SendAsync"
+    ]
+  },
+  "planes": {
+    "p0_sovereignCore": {
+      "evidence": [
+        "20 code files",
+        "structured core types"
+      ],
+      "present": true
+    },
+    "p1_integrationSurface": {
+      "evidence": [],
+      "present": false
+    },
+    "p2_operatorPolicy": {
+      "evidence": [],
+      "present": false
+    },
+    "p3_hybridExecution": {
+      "evidence": [],
+      "present": false
+    }
+  },
+  "degradationEvidence": [
+    "unreachable|return nullptr|return false"
+  ],
+  "contracts": [],
+  "truthFlags": [
+    "health|status"
+  ],
+  "admission": {
+    "four-planes-nameable": "partial",
+    "degrades-honestly": "partial",
+    "contracts-not-internals": "absent",
+    "respects-operator-policy": "absent",
+    "standalone-before-connected": "found",
+    "pipeline-discoverable": "found"
+  },
+  "classSuggestion": "unclear — review",
+  "verdict": "reference",
+  "reasons": [
+    "2 found / 2 partial / 2 absent on admission test",
+    "real pipeline but doctrine gaps — useful fragments, not a product yet"
+  ],
+  "confidence": "auto-scan inference — adapter or operator review required before registry"
+}

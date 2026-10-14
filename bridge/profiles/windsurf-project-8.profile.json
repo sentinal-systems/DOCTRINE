@@ -1,0 +1,84 @@
+{
+  "project": "windsurf-project-8",
+  "sourceDir": "CascadeProjects",
+  "path": "C:\\Users\\htsou\\CascadeProjects\\windsurf-project-8",
+  "scannedAt": "2026-10-14T18:46:25.383Z",
+  "census": {
+    "files": 31,
+    "codeFiles": 29,
+    "filesRead": 31,
+    "exts": {
+      ".rs": 29,
+      ".toml": 1,
+      ".md": 1
+    }
+  },
+  "package": null,
+  "surfaces": [],
+  "pipeline": {
+    "input": [
+      "readFile|createReadStream|File\\.Read|ifstr"
+    ],
+    "transform": [
+      "worker_threads|new Worker\\(|std::thread|Ta",
+      "\\.map\\(|\\.filter\\(|\\.reduce\\(|foreach|std:",
+      "score|scor|inference|infer|predict|analy[s"
+    ],
+    "output": [
+      "writeFile|createWriteStream|File\\.Write|of"
+    ]
+  },
+  "planes": {
+    "p0_sovereignCore": {
+      "evidence": [
+        "29 code files",
+        "structured core types"
+      ],
+      "present": true
+    },
+    "p1_integrationSurface": {
+      "evidence": [
+        "remote calls: https?:\\/\\/(?!localhost|127\\.)"
+      ],
+      "present": true
+    },
+    "p2_operatorPolicy": {
+      "evidence": [],
+      "present": false
+    },
+    "p3_hybridExecution": {
+      "evidence": [
+        "local compute + remote input"
+      ],
+      "present": true
+    }
+  },
+  "degradationEvidence": [
+    "catch\\s*\\(|try\\s*\\{|FAILED\\(",
+    "timeout"
+  ],
+  "contracts": [
+    "interface \\w+|type \\w+ =|public (class|int"
+  ],
+  "truthFlags": [
+    "version",
+    "health|status",
+    "error|errorHandler|HRESULT"
+  ],
+  "admission": {
+    "four-planes-nameable": "found",
+    "degrades-honestly": "found",
+    "contracts-not-internals": "partial",
+    "respects-operator-policy": "absent",
+    "standalone-before-connected": "found",
+    "pipeline-discoverable": "found"
+  },
+  "classSuggestion": "engine",
+  "verdict": "promote-candidate",
+  "reasons": [
+    "4/6 admission criteria found",
+    "degradation evidence present",
+    "class hint: engine"
+  ],
+  "confidence": "auto-scan inference — adapter or operator review required before registry"
+}

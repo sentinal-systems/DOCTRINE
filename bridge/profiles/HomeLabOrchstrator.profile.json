@@ -1,0 +1,76 @@
+{
+  "project": "HomeLabOrchstrator",
+  "sourceDir": "Home Projects",
+  "path": "D:\\Home Projects\\HomeLabOrchstrator",
+  "scannedAt": "2026-10-14T18:46:38.215Z",
+  "census": {
+    "files": 13,
+    "codeFiles": 7,
+    "filesRead": 12,
+    "exts": {
+      ".sln": 1,
+      ".md": 2,
+      ".xaml": 2,
+      ".cs": 7,
+      ".csproj": 1
+    }
+  },
+  "package": null,
+  "surfaces": [
+    "native (.NET)"
+  ],
+  "pipeline": {
+    "input": null,
+    "transform": [
+      "score|scor|inference|infer|predict|analy[s"
+    ],
+    "output": null
+  },
+  "planes": {
+    "p0_sovereignCore": {
+      "evidence": [
+        "7 code files",
+        "surfaces: native (.NET)",
+        "structured core types"
+      ],
+      "present": true
+    },
+    "p1_integrationSurface": {
+      "evidence": [],
+      "present": false
+    },
+    "p2_operatorPolicy": {
+      "evidence": [],
+      "present": false
+    },
+    "p3_hybridExecution": {
+      "evidence": [],
+      "present": false
+    }
+  },
+  "degradationEvidence": [
+    "catch\\s*\\(|try\\s*\\{|FAILED\\("
+  ],
+  "contracts": [
+    "ipcMain\\.handle|app\\.(get|post|put|delete)"
+  ],
+  "truthFlags": [
+    "version",
+    "health|status",
+    "error|errorHandler|HRESULT"
+  ],
+  "admission": {
+    "four-planes-nameable": "partial",
+    "degrades-honestly": "partial",
+    "contracts-not-internals": "partial",
+    "respects-operator-policy": "absent",
+    "standalone-before-connected": "found",
+    "pipeline-discoverable": "absent"
+  },
+  "classSuggestion": "unclear — review",
+  "verdict": "dormant",
+  "reasons": [
+    "no discoverable input→transform→output"
+  ],
+  "confidence": "auto-scan inference — adapter or operator review required before registry"
+}

@@ -1,0 +1,108 @@
+{
+  "project": "lighting-control-suite",
+  "sourceDir": "CascadeProjects",
+  "path": "C:\\Users\\htsou\\CascadeProjects\\lighting-control-suite",
+  "scannedAt": "2026-10-14T18:46:12.521Z",
+  "census": {
+    "files": 27,
+    "codeFiles": 21,
+    "filesRead": 30,
+    "exts": {
+      ".js": 20,
+      ".md": 2,
+      ".html": 1,
+      ".json": 2,
+      ".css": 2
+    }
+  },
+  "package": {
+    "name": "lighting-control-suite",
+    "version": "1.0.0",
+    "deps": 6
+  },
+  "surfaces": [
+    "desktop (electron)",
+    "web UI",
+    "api/server",
+    "cli"
+  ],
+  "pipeline": {
+    "input": [
+      "readFile|createReadStream|File\\.Read|ifstr",
+      "process\\.argv|commander|yargs|argparse|arg",
+      "WebSocket|ws:\\/\\/|HttpClient|TcpClient|Udp",
+      "serialport|SerialPort|waveIn|Wasapi|WASAPI"
+    ],
+    "transform": [
+      "\\.map\\(|\\.filter\\(|\\.reduce\\(|foreach|std:",
+      "score|scor|inference|infer|predict|analy[s"
+    ],
+    "output": [
+      "writeFile|createWriteStream|File\\.Write|of",
+      "console\\.(log|table)|std::cout|printf|Cons",
+      "document\\.|getElementById|canvas|getContex",
+      "emit\\(|broadcast|Send\\(|SendAsync"
+    ]
+  },
+  "planes": {
+    "p0_sovereignCore": {
+      "evidence": [
+        "21 code files",
+        "surfaces: desktop (electron), web UI, api/server, cli",
+        "structured core types"
+      ],
+      "present": true
+    },
+    "p1_integrationSurface": {
+      "evidence": [
+        "remote calls: https?:\\/\\/(?!localhost|127\\.)",
+        "deps: dgram, serialport, ws, three, electron, electron-builder"
+      ],
+      "present": true
+    },
+    "p2_operatorPolicy": {
+      "evidence": [
+        "settings\\.|Settings\\.|appsettings"
+      ],
+      "present": true
+    },
+    "p3_hybridExecution": {
+      "evidence": [
+        "local compute + remote input"
+      ],
+      "present": true
+    }
+  },
+  "degradationEvidence": [
+    "retry|backoff",
+    "catch\\s*\\(|try\\s*\\{|FAILED\\(",
+    "timeout",
+    "unreachable|return nullptr|return false"
+  ],
+  "contracts": [
+    "module\\.exports|export (default|function|c",
+    "interface \\w+|type \\w+ =|public (class|int",
+    "ipcMain\\.handle|app\\.(get|post|put|delete)"
+  ],
+  "truthFlags": [
+    "version",
+    "health|status",
+    "error|errorHandler|HRESULT"
+  ],
+  "admission": {
+    "four-planes-nameable": "found",
+    "degrades-honestly": "found",
+    "contracts-not-internals": "found",
+    "respects-operator-policy": "found",
+    "standalone-before-connected": "found",
+    "pipeline-discoverable": "found"
+  },
+  "classSuggestion": "engine",
+  "verdict": "promote-candidate",
+  "reasons": [
+    "6/6 admission criteria found",
+    "degradation evidence present",
+    "class hint: engine"
+  ],
+  "confidence": "auto-scan inference — adapter or operator review required before registry"
+}

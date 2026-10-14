@@ -1,0 +1,79 @@
+{
+  "project": "StageSimDecompiled",
+  "sourceDir": "CascadeProjects",
+  "path": "C:\\Users\\htsou\\CascadeProjects\\StageSimDecompiled",
+  "scannedAt": "2026-10-14T18:46:19.880Z",
+  "census": {
+    "files": 1,
+    "codeFiles": 1,
+    "filesRead": 1,
+    "exts": {
+      ".cs": 1
+    }
+  },
+  "package": null,
+  "surfaces": [
+    "native (.NET)"
+  ],
+  "pipeline": {
+    "input": [
+      "readFile|createReadStream|File\\.Read|ifstr"
+    ],
+    "transform": [
+      "\\.map\\(|\\.filter\\(|\\.reduce\\(|foreach|std:",
+      "glsl|shader|hlsl|cuda|opencl|d3d11|directx"
+    ],
+    "output": [
+      "document\\.|getElementById|canvas|getContex"
+    ]
+  },
+  "planes": {
+    "p0_sovereignCore": {
+      "evidence": [
+        "1 code files",
+        "surfaces: native (.NET)",
+        "structured core types"
+      ],
+      "present": false
+    },
+    "p1_integrationSurface": {
+      "evidence": [],
+      "present": false
+    },
+    "p2_operatorPolicy": {
+      "evidence": [],
+      "present": false
+    },
+    "p3_hybridExecution": {
+      "evidence": [
+        "gpu/shaders"
+      ],
+      "present": true
+    }
+  },
+  "degradationEvidence": [
+    "catch\\s*\\(|try\\s*\\{|FAILED\\("
+  ],
+  "contracts": [
+    "interface \\w+|type \\w+ =|public (class|int"
+  ],
+  "truthFlags": [
+    "version",
+    "error|errorHandler|HRESULT"
+  ],
+  "admission": {
+    "four-planes-nameable": "partial",
+    "degrades-honestly": "partial",
+    "contracts-not-internals": "partial",
+    "respects-operator-policy": "absent",
+    "standalone-before-connected": "partial",
+    "pipeline-discoverable": "found"
+  },
+  "classSuggestion": "module",
+  "verdict": "reference",
+  "reasons": [
+    "1 found / 4 partial / 1 absent on admission test",
+    "real pipeline but doctrine gaps — useful fragments, not a product yet"
+  ],
+  "confidence": "auto-scan inference — adapter or operator review required before registry"
+}

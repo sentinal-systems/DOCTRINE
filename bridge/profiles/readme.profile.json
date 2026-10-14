@@ -1,0 +1,76 @@
+{
+  "project": "readme",
+  "sourceDir": "CascadeProjects",
+  "path": "C:\\Users\\htsou\\CascadeProjects\\readme",
+  "scannedAt": "2026-10-14T18:46:15.271Z",
+  "census": {
+    "files": 1,
+    "codeFiles": 0,
+    "filesRead": 1,
+    "exts": {
+      ".md": 1
+    }
+  },
+  "package": null,
+  "surfaces": [],
+  "pipeline": {
+    "input": null,
+    "transform": [
+      "score|scor|inference|infer|predict|analy[s",
+      "glsl|shader|hlsl|cuda|opencl|d3d11|directx"
+    ],
+    "output": [
+      "document\\.|getElementById|canvas|getContex"
+    ]
+  },
+  "planes": {
+    "p0_sovereignCore": {
+      "evidence": [
+        "structured core types"
+      ],
+      "present": false
+    },
+    "p1_integrationSurface": {
+      "evidence": [],
+      "present": false
+    },
+    "p2_operatorPolicy": {
+      "evidence": [
+        "\\.env|config\\.(json|yaml|yml|toml|ini)"
+      ],
+      "present": true
+    },
+    "p3_hybridExecution": {
+      "evidence": [
+        "gpu/shaders"
+      ],
+      "present": true
+    }
+  },
+  "degradationEvidence": [
+    "fallback"
+  ],
+  "contracts": [
+    "interface \\w+|type \\w+ =|public (class|int",
+    "ipcMain\\.handle|app\\.(get|post|put|delete)"
+  ],
+  "truthFlags": [
+    "version",
+    "error|errorHandler|HRESULT"
+  ],
+  "admission": {
+    "four-planes-nameable": "partial",
+    "degrades-honestly": "partial",
+    "contracts-not-internals": "found",
+    "respects-operator-policy": "found",
+    "standalone-before-connected": "partial",
+    "pipeline-discoverable": "absent"
+  },
+  "classSuggestion": null,
+  "verdict": "dormant",
+  "reasons": [
+    "no discoverable input→transform→output",
+    "too little code to carry a pipeline"
+  ],
+  "confidence": "auto-scan inference — adapter or operator review required before registry"
+}

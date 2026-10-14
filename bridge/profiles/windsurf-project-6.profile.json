@@ -1,0 +1,94 @@
+{
+  "project": "windsurf-project-6",
+  "sourceDir": "CascadeProjects",
+  "path": "C:\\Users\\htsou\\CascadeProjects\\windsurf-project-6",
+  "scannedAt": "2026-10-14T18:46:25.269Z",
+  "census": {
+    "files": 400,
+    "codeFiles": 323,
+    "filesRead": 98,
+    "exts": {
+      ".exe": 1,
+      ".gradle": 3,
+      ".json": 4,
+      ".xml": 9,
+      ".kt": 49,
+      ".bat": 3,
+      ".properties": 4,
+      ".jar": 1,
+      ".zip": 2,
+      "(none)": 2,
+      ".html": 319,
+      ".css": 2,
+      ".js": 1
+    }
+  },
+  "package": null,
+  "surfaces": [
+    "web UI",
+    "api/server"
+  ],
+  "pipeline": {
+    "input": [
+      "readFile|createReadStream|File\\.Read|ifstr"
+    ],
+    "transform": null,
+    "output": [
+      "document\\.|getElementById|canvas|getContex"
+    ]
+  },
+  "planes": {
+    "p0_sovereignCore": {
+      "evidence": [
+        "323 code files",
+        "surfaces: web UI, api/server",
+        "structured core types"
+      ],
+      "present": true
+    },
+    "p1_integrationSurface": {
+      "evidence": [
+        "remote calls: https?:\\/\\/(?!localhost|127\\.), api\\.|endpoint|\\/v\\d\\/"
+      ],
+      "present": true
+    },
+    "p2_operatorPolicy": {
+      "evidence": [
+        "settings\\.|Settings\\.|appsettings"
+      ],
+      "present": true
+    },
+    "p3_hybridExecution": {
+      "evidence": [],
+      "present": false
+    }
+  },
+  "degradationEvidence": [
+    "catch\\s*\\(|try\\s*\\{|FAILED\\(",
+    "timeout",
+    "unreachable|return nullptr|return false"
+  ],
+  "contracts": [
+    "interface \\w+|type \\w+ =|public (class|int",
+    "ipcMain\\.handle|app\\.(get|post|put|delete)"
+  ],
+  "truthFlags": [
+    "version",
+    "health|status",
+    "error|errorHandler|HRESULT"
+  ],
+  "admission": {
+    "four-planes-nameable": "found",
+    "degrades-honestly": "found",
+    "contracts-not-internals": "found",
+    "respects-operator-policy": "found",
+    "standalone-before-connected": "found",
+    "pipeline-discoverable": "absent"
+  },
+  "classSuggestion": "contract/surface",
+  "verdict": "dormant",
+  "reasons": [
+    "no discoverable input→transform→output"
+  ],
+  "confidence": "auto-scan inference — adapter or operator review required before registry"
+}

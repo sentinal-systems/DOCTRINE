@@ -1,0 +1,87 @@
+{
+  "project": "hydro-tycoon",
+  "sourceDir": "CascadeProjects",
+  "path": "C:\\Users\\htsou\\CascadeProjects\\hydro-tycoon",
+  "scannedAt": "2026-10-14T18:46:11.403Z",
+  "census": {
+    "files": 7,
+    "codeFiles": 4,
+    "filesRead": 9,
+    "exts": {
+      ".js": 2,
+      ".html": 2,
+      ".json": 2,
+      ".md": 1
+    }
+  },
+  "package": {
+    "name": "hydro-tycoon",
+    "version": "1.0.0",
+    "deps": 2
+  },
+  "surfaces": [
+    "desktop (electron)",
+    "web UI"
+  ],
+  "pipeline": {
+    "input": null,
+    "transform": [
+      "glsl|shader|hlsl|cuda|opencl|d3d11|directx",
+      "\\.wasm|\\.wat|WebAssembly"
+    ],
+    "output": [
+      "console\\.(log|table)|std::cout|printf|Cons",
+      "document\\.|getElementById|canvas|getContex"
+    ]
+  },
+  "planes": {
+    "p0_sovereignCore": {
+      "evidence": [
+        "4 code files",
+        "surfaces: desktop (electron), web UI"
+      ],
+      "present": true
+    },
+    "p1_integrationSurface": {
+      "evidence": [
+        "remote calls: https?:\\/\\/(?!localhost|127\\.)",
+        "deps: three, electron"
+      ],
+      "present": true
+    },
+    "p2_operatorPolicy": {
+      "evidence": [],
+      "present": false
+    },
+    "p3_hybridExecution": {
+      "evidence": [
+        "wasm",
+        "gpu/shaders"
+      ],
+      "present": true
+    }
+  },
+  "degradationEvidence": [
+    "catch\\s*\\(|try\\s*\\{|FAILED\\("
+  ],
+  "contracts": [],
+  "truthFlags": [
+    "version",
+    "health|status",
+    "error|errorHandler|HRESULT"
+  ],
+  "admission": {
+    "four-planes-nameable": "found",
+    "degrades-honestly": "partial",
+    "contracts-not-internals": "absent",
+    "respects-operator-policy": "absent",
+    "standalone-before-connected": "found",
+    "pipeline-discoverable": "absent"
+  },
+  "classSuggestion": "unclear — review",
+  "verdict": "dormant",
+  "reasons": [
+    "no discoverable input→transform→output"
+  ],
+  "confidence": "auto-scan inference — adapter or operator review required before registry"
+}

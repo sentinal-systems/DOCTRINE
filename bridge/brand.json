@@ -1,0 +1,11 @@
+{
+  "entity": "Sentinal Systems UK",
+  "keyPrefix": "SSU",
+  "legacy": [
+    { "name": "visentrix", "re": "visentrix" },
+    { "name": "VIS- key prefix", "re": "\\bVIS-[A-Z0-9]" },
+    { "name": "VisentrixBIBLE", "re": "visentrixbible" }
+  ],
+  "publicDocs": ["LICENSE", "README.md", "SOFTWARE_POLICY.md"],
+  "_note": "legacy[].re is a case-insensitive regex matched per line. Intentional legacy references go in a repo's .sentinal-brand.json allowlist, never here."
+}

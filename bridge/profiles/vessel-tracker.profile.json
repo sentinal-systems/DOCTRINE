@@ -1,0 +1,116 @@
+{
+  "project": "vessel-tracker",
+  "sourceDir": "CascadeProjects",
+  "path": "C:\\Users\\htsou\\CascadeProjects\\vessel-tracker",
+  "scannedAt": "2026-10-14T18:46:21.575Z",
+  "census": {
+    "files": 66,
+    "codeFiles": 45,
+    "filesRead": 60,
+    "exts": {
+      ".js": 17,
+      ".map": 14,
+      ".css": 2,
+      ".html": 2,
+      ".ts": 17,
+      ".json": 4,
+      ".plist": 1,
+      ".tsx": 9
+    }
+  },
+  "package": {
+    "name": "vessel-tracker",
+    "version": "1.0.0",
+    "deps": 21
+  },
+  "surfaces": [
+    "desktop (electron)",
+    "web UI",
+    "api/server",
+    "cli"
+  ],
+  "pipeline": {
+    "input": [
+      "\\bfetch\\s*\\(",
+      "process\\.argv|commander|yargs|argparse|arg",
+      "WebSocket|ws:\\/\\/|HttpClient|TcpClient|Udp"
+    ],
+    "transform": [
+      "\\.map\\(|\\.filter\\(|\\.reduce\\(|foreach|std:",
+      "score|scor|inference|infer|predict|analy[s",
+      "\\.wasm|\\.wat|WebAssembly"
+    ],
+    "output": [
+      "console\\.(log|table)|std::cout|printf|Cons",
+      "document\\.|getElementById|canvas|getContex"
+    ]
+  },
+  "planes": {
+    "p0_sovereignCore": {
+      "evidence": [
+        "45 code files",
+        "surfaces: desktop (electron), web UI, api/server, cli",
+        "structured core types"
+      ],
+      "present": true
+    },
+    "p1_integrationSurface": {
+      "evidence": [
+        "remote calls: https?:\\/\\/(?!localhost|127\\.), api\\.|endpoint|\\/v\\d\\/",
+        "deps: @types/ws, leaflet, lucide-react, react, react-dom, ws"
+      ],
+      "present": true
+    },
+    "p2_operatorPolicy": {
+      "evidence": [
+        "\\.env|config\\.(json|yaml|yml|toml|ini)",
+        "--config|getenv|process\\.env|GetEnvironmen"
+      ],
+      "present": true
+    },
+    "p3_hybridExecution": {
+      "evidence": [
+        "wasm",
+        "local compute + remote input"
+      ],
+      "present": true
+    }
+  },
+  "degradationEvidence": [
+    "fallback",
+    "degrad",
+    "unavailable",
+    "stale",
+    "retry|backoff",
+    "catch\\s*\\(|try\\s*\\{|FAILED\\(",
+    "timeout",
+    "unreachable|return nullptr|return false"
+  ],
+  "contracts": [
+    "module\\.exports|export (default|function|c",
+    "interface \\w+|type \\w+ =|public (class|int",
+    "ipcMain\\.handle|app\\.(get|post|put|delete)"
+  ],
+  "truthFlags": [
+    "version",
+    "health|status",
+    "uptime",
+    "error|errorHandler|HRESULT"
+  ],
+  "admission": {
+    "four-planes-nameable": "found",
+    "degrades-honestly": "found",
+    "contracts-not-internals": "found",
+    "respects-operator-policy": "found",
+    "standalone-before-connected": "found",
+    "pipeline-discoverable": "found"
+  },
+  "classSuggestion": "engine",
+  "verdict": "promote-candidate",
+  "reasons": [
+    "6/6 admission criteria found",
+    "degradation evidence present",
+    "class hint: engine"
+  ],
+  "confidence": "auto-scan inference — adapter or operator review required before registry"
+}

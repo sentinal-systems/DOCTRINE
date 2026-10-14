@@ -1,0 +1,91 @@
+{
+  "project": "ai-3d-creator",
+  "sourceDir": "CascadeProjects",
+  "path": "C:\\Users\\htsou\\CascadeProjects\\ai-3d-creator",
+  "scannedAt": "2026-10-14T18:46:07.917Z",
+  "census": {
+    "files": 5,
+    "codeFiles": 3,
+    "filesRead": 7,
+    "exts": {
+      ".js": 1,
+      ".html": 1,
+      ".md": 1,
+      ".py": 1,
+      ".css": 1
+    }
+  },
+  "package": null,
+  "surfaces": [
+    "web UI",
+    "python"
+  ],
+  "pipeline": {
+    "input": [
+      "\\bfetch\\s*\\(",
+      "readFile|createReadStream|File\\.Read|ifstr",
+      "WebSocket|ws:\\/\\/|HttpClient|TcpClient|Udp"
+    ],
+    "transform": [
+      "onnxruntime|tensorflow|tesseract|ollama|op"
+    ],
+    "output": [
+      "writeFile|createWriteStream|File\\.Write|of",
+      "res\\.(send|json|end)",
+      "console\\.(log|table)|std::cout|printf|Cons",
+      "document\\.|getElementById|canvas|getContex"
+    ]
+  },
+  "planes": {
+    "p0_sovereignCore": {
+      "evidence": [
+        "3 code files",
+        "surfaces: web UI, python",
+        "structured core types"
+      ],
+      "present": true
+    },
+    "p1_integrationSurface": {
+      "evidence": [
+        "remote calls: https?:\\/\\/(?!localhost|127\\.)"
+      ],
+      "present": true
+    },
+    "p2_operatorPolicy": {
+      "evidence": [],
+      "present": false
+    },
+    "p3_hybridExecution": {
+      "evidence": [
+        "local compute + remote input"
+      ],
+      "present": true
+    }
+  },
+  "degradationEvidence": [
+    "offline",
+    "catch\\s*\\(|try\\s*\\{|FAILED\\(",
+    "timeout"
+  ],
+  "contracts": [],
+  "truthFlags": [
+    "health|status",
+    "error|errorHandler|HRESULT"
+  ],
+  "admission": {
+    "four-planes-nameable": "found",
+    "degrades-honestly": "found",
+    "contracts-not-internals": "absent",
+    "respects-operator-policy": "absent",
+    "standalone-before-connected": "found",
+    "pipeline-discoverable": "found"
+  },
+  "classSuggestion": "engine? (no contract seam detected)",
+  "verdict": "promote-candidate",
+  "reasons": [
+    "4/6 admission criteria found",
+    "degradation evidence present",
+    "class hint: engine? (no contract seam detected)"
+  ],
+  "confidence": "auto-scan inference — adapter or operator review required before registry"
+}

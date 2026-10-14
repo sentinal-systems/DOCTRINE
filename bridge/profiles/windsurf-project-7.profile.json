@@ -1,0 +1,76 @@
+{
+  "project": "windsurf-project-7",
+  "sourceDir": "CascadeProjects",
+  "path": "C:\\Users\\htsou\\CascadeProjects\\windsurf-project-7",
+  "scannedAt": "2026-10-14T18:46:25.286Z",
+  "census": {
+    "files": 3,
+    "codeFiles": 0,
+    "filesRead": 4,
+    "exts": {
+      ".md": 3
+    }
+  },
+  "package": null,
+  "surfaces": [],
+  "pipeline": {
+    "input": null,
+    "transform": [
+      "onnxruntime|tensorflow|tesseract|ollama|op",
+      "\\.map\\(|\\.filter\\(|\\.reduce\\(|foreach|std:",
+      "score|scor|inference|infer|predict|analy[s",
+      "\\.wasm|\\.wat|WebAssembly"
+    ],
+    "output": null
+  },
+  "planes": {
+    "p0_sovereignCore": {
+      "evidence": [
+        "structured core types"
+      ],
+      "present": false
+    },
+    "p1_integrationSurface": {
+      "evidence": [],
+      "present": false
+    },
+    "p2_operatorPolicy": {
+      "evidence": [],
+      "present": false
+    },
+    "p3_hybridExecution": {
+      "evidence": [
+        "wasm"
+      ],
+      "present": true
+    }
+  },
+  "degradationEvidence": [
+    "fallback",
+    "offline",
+    "catch\\s*\\(|try\\s*\\{|FAILED\\(",
+    "unreachable|return nullptr|return false"
+  ],
+  "contracts": [],
+  "truthFlags": [
+    "version",
+    "health|status",
+    "uptime",
+    "error|errorHandler|HRESULT"
+  ],
+  "admission": {
+    "four-planes-nameable": "partial",
+    "degrades-honestly": "found",
+    "contracts-not-internals": "absent",
+    "respects-operator-policy": "absent",
+    "standalone-before-connected": "partial",
+    "pipeline-discoverable": "absent"
+  },
+  "classSuggestion": null,
+  "verdict": "dormant",
+  "reasons": [
+    "no discoverable input→transform→output",
+    "too little code to carry a pipeline"
+  ],
+  "confidence": "auto-scan inference — adapter or operator review required before registry"
+}

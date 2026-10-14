@@ -1,0 +1,66 @@
+{
+  "project": "copy_visualisers.py",
+  "sourceDir": "CascadeProjects",
+  "path": "C:\\Users\\htsou\\CascadeProjects\\copy_visualisers.py",
+  "scannedAt": "2026-10-14T18:46:25.607Z",
+  "census": {
+    "files": 1,
+    "codeFiles": 1,
+    "filesRead": 1,
+    "exts": {
+      ".py": 1
+    }
+  },
+  "package": null,
+  "surfaces": [
+    "python"
+  ],
+  "pipeline": {
+    "input": null,
+    "transform": [
+      "score|scor|inference|infer|predict|analy[s"
+    ],
+    "output": [
+      "console\\.(log|table)|std::cout|printf|Cons"
+    ]
+  },
+  "planes": {
+    "p0_sovereignCore": {
+      "evidence": [
+        "1 code files",
+        "surfaces: python"
+      ],
+      "present": false
+    },
+    "p1_integrationSurface": {
+      "evidence": [],
+      "present": false
+    },
+    "p2_operatorPolicy": {
+      "evidence": [],
+      "present": false
+    },
+    "p3_hybridExecution": {
+      "evidence": [],
+      "present": false
+    }
+  },
+  "degradationEvidence": [],
+  "contracts": [],
+  "truthFlags": [],
+  "admission": {
+    "four-planes-nameable": "partial",
+    "degrades-honestly": "absent",
+    "contracts-not-internals": "absent",
+    "respects-operator-policy": "absent",
+    "standalone-before-connected": "partial",
+    "pipeline-discoverable": "absent"
+  },
+  "classSuggestion": "unclear — review",
+  "verdict": "dormant",
+  "reasons": [
+    "no discoverable input→transform→output",
+    "too little code to carry a pipeline"
+  ],
+  "confidence": "auto-scan inference — adapter or operator review required before registry"
+}

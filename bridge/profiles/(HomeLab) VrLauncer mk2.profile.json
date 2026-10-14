@@ -1,0 +1,121 @@
+{
+  "project": "(HomeLab) VrLauncer mk2",
+  "sourceDir": "Home Projects",
+  "path": "D:\\Home Projects\\(HomeLab) VrLauncer mk2",
+  "scannedAt": "2026-10-14T18:46:26.602Z",
+  "census": {
+    "files": 400,
+    "codeFiles": 315,
+    "filesRead": 120,
+    "exts": {
+      ".txt": 13,
+      ".json": 2,
+      ".md": 14,
+      ".h": 144,
+      ".cpp": 9,
+      ".csproj": 2,
+      ".cs": 4,
+      ".proto": 1,
+      ".sln": 1,
+      ".bat": 1,
+      ".sh": 1,
+      ".log": 20,
+      ".py": 4,
+      ".cc": 152,
+      ".bazel": 8,
+      ".c": 1,
+      ".inc": 18,
+      ".cmake": 2,
+      ".bzl": 2,
+      ".lds": 1
+    }
+  },
+  "package": null,
+  "surfaces": [
+    "api/server",
+    "native (.NET)",
+    "native (C/C++)",
+    "cli",
+    "python"
+  ],
+  "pipeline": {
+    "input": [
+      "readFile|createReadStream|File\\.Read|ifstr",
+      "process\\.argv|commander|yargs|argparse|arg"
+    ],
+    "transform": [
+      "worker_threads|new Worker\\(|std::thread|Ta",
+      "\\.map\\(|\\.filter\\(|\\.reduce\\(|foreach|std:",
+      "score|scor|inference|infer|predict|analy[s",
+      "glsl|shader|hlsl|cuda|opencl|d3d11|directx",
+      "\\.wasm|\\.wat|WebAssembly"
+    ],
+    "output": [
+      "writeFile|createWriteStream|File\\.Write|of",
+      "console\\.(log|table)|std::cout|printf|Cons",
+      "document\\.|getElementById|canvas|getContex"
+    ]
+  },
+  "planes": {
+    "p0_sovereignCore": {
+      "evidence": [
+        "315 code files",
+        "surfaces: api/server, native (.NET), native (C/C++), cli, python",
+        "structured core types"
+      ],
+      "present": true
+    },
+    "p1_integrationSurface": {
+      "evidence": [
+        "remote calls: https?:\\/\\/(?!localhost|127\\.), api\\.|endpoint|\\/v\\d\\/"
+      ],
+      "present": true
+    },
+    "p2_operatorPolicy": {
+      "evidence": [
+        "--config|getenv|process\\.env|GetEnvironmen"
+      ],
+      "present": true
+    },
+    "p3_hybridExecution": {
+      "evidence": [
+        "wasm",
+        "gpu/shaders",
+        "local compute + remote input"
+      ],
+      "present": true
+    }
+  },
+  "degradationEvidence": [
+    "fallback",
+    "unavailable",
+    "catch\\s*\\(|try\\s*\\{|FAILED\\(",
+    "timeout",
+    "unreachable|return nullptr|return false"
+  ],
+  "contracts": [
+    "interface \\w+|type \\w+ =|public (class|int",
+    "ipcMain\\.handle|app\\.(get|post|put|delete)"
+  ],
+  "truthFlags": [
+    "version",
+    "health|status",
+    "error|errorHandler|HRESULT"
+  ],
+  "admission": {
+    "four-planes-nameable": "found",
+    "degrades-honestly": "found",
+    "contracts-not-internals": "found",
+    "respects-operator-policy": "found",
+    "standalone-before-connected": "found",
+    "pipeline-discoverable": "found"
+  },
+  "classSuggestion": "engine",
+  "verdict": "promote-candidate",
+  "reasons": [
+    "6/6 admission criteria found",
+    "degradation evidence present",
+    "class hint: engine"
+  ],
+  "confidence": "auto-scan inference — adapter or operator review required before registry"
+}

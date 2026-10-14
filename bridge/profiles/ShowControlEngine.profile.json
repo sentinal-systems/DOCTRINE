@@ -1,0 +1,107 @@
+{
+  "project": "ShowControlEngine",
+  "sourceDir": "CascadeProjects",
+  "path": "C:\\Users\\htsou\\CascadeProjects\\ShowControlEngine",
+  "scannedAt": "2026-10-14T18:46:18.387Z",
+  "census": {
+    "files": 131,
+    "codeFiles": 114,
+    "filesRead": 120,
+    "exts": {
+      ".cs": 114,
+      ".csproj": 10,
+      ".txt": 2,
+      ".md": 2,
+      ".sln": 1,
+      ".hlsl": 1,
+      ".xaml": 1
+    }
+  },
+  "package": null,
+  "surfaces": [
+    "native (.NET)"
+  ],
+  "pipeline": {
+    "input": [
+      "readFile|createReadStream|File\\.Read|ifstr",
+      "process\\.argv|commander|yargs|argparse|arg",
+      "process\\.stdin|std::cin|Console\\.Read",
+      "WebSocket|ws:\\/\\/|HttpClient|TcpClient|Udp",
+      "serialport|SerialPort|waveIn|Wasapi|WASAPI"
+    ],
+    "transform": [
+      "worker_threads|new Worker\\(|std::thread|Ta",
+      "onnxruntime|tensorflow|tesseract|ollama|op",
+      "\\.map\\(|\\.filter\\(|\\.reduce\\(|foreach|std:",
+      "score|scor|inference|infer|predict|analy[s",
+      "glsl|shader|hlsl|cuda|opencl|d3d11|directx"
+    ],
+    "output": [
+      "console\\.(log|table)|std::cout|printf|Cons",
+      "document\\.|getElementById|canvas|getContex",
+      "emit\\(|broadcast|Send\\(|SendAsync"
+    ]
+  },
+  "planes": {
+    "p0_sovereignCore": {
+      "evidence": [
+        "114 code files",
+        "surfaces: native (.NET)",
+        "structured core types"
+      ],
+      "present": true
+    },
+    "p1_integrationSurface": {
+      "evidence": [
+        "remote calls: api\\.|endpoint|\\/v\\d\\/"
+      ],
+      "present": true
+    },
+    "p2_operatorPolicy": {
+      "evidence": [],
+      "present": false
+    },
+    "p3_hybridExecution": {
+      "evidence": [
+        "gpu/shaders",
+        "local compute + remote input"
+      ],
+      "present": true
+    }
+  },
+  "degradationEvidence": [
+    "fallback",
+    "degrad",
+    "unavailable",
+    "stale",
+    "retry|backoff",
+    "catch\\s*\\(|try\\s*\\{|FAILED\\(",
+    "timeout",
+    "unreachable|return nullptr|return false"
+  ],
+  "contracts": [
+    "interface \\w+|type \\w+ =|public (class|int",
+    "ipcMain\\.handle|app\\.(get|post|put|delete)"
+  ],
+  "truthFlags": [
+    "version",
+    "health|status",
+    "error|errorHandler|HRESULT"
+  ],
+  "admission": {
+    "four-planes-nameable": "found",
+    "degrades-honestly": "found",
+    "contracts-not-internals": "found",
+    "respects-operator-policy": "absent",
+    "standalone-before-connected": "found",
+    "pipeline-discoverable": "found"
+  },
+  "classSuggestion": "engine",
+  "verdict": "promote-candidate",
+  "reasons": [
+    "5/6 admission criteria found",
+    "degradation evidence present",
+    "class hint: engine"
+  ],
+  "confidence": "auto-scan inference — adapter or operator review required before registry"
+}

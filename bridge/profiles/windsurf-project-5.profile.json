@@ -1,0 +1,92 @@
+{
+  "project": "windsurf-project-5",
+  "sourceDir": "CascadeProjects",
+  "path": "C:\\Users\\htsou\\CascadeProjects\\windsurf-project-5",
+  "scannedAt": "2026-10-14T18:46:24.632Z",
+  "census": {
+    "files": 8,
+    "codeFiles": 5,
+    "filesRead": 7,
+    "exts": {
+      ".code-workspace": 1,
+      ".py": 3,
+      ".md": 1,
+      ".txt": 1,
+      ".bat": 2
+    }
+  },
+  "package": null,
+  "surfaces": [
+    "python"
+  ],
+  "pipeline": {
+    "input": [
+      "readFile|createReadStream|File\\.Read|ifstr"
+    ],
+    "transform": [
+      "onnxruntime|tensorflow|tesseract|ollama|op"
+    ],
+    "output": [
+      "writeFile|createWriteStream|File\\.Write|of",
+      "console\\.(log|table)|std::cout|printf|Cons",
+      "document\\.|getElementById|canvas|getContex"
+    ]
+  },
+  "planes": {
+    "p0_sovereignCore": {
+      "evidence": [
+        "5 code files",
+        "surfaces: python",
+        "structured core types"
+      ],
+      "present": true
+    },
+    "p1_integrationSurface": {
+      "evidence": [
+        "remote calls: https?:\\/\\/(?!localhost|127\\.)"
+      ],
+      "present": true
+    },
+    "p2_operatorPolicy": {
+      "evidence": [
+        "\\.env|config\\.(json|yaml|yml|toml|ini)",
+        "settings\\.|Settings\\.|appsettings"
+      ],
+      "present": true
+    },
+    "p3_hybridExecution": {
+      "evidence": [
+        "local compute + remote input"
+      ],
+      "present": true
+    }
+  },
+  "degradationEvidence": [
+    "fallback",
+    "timeout"
+  ],
+  "contracts": [
+    "interface \\w+|type \\w+ =|public (class|int"
+  ],
+  "truthFlags": [
+    "version",
+    "health|status",
+    "error|errorHandler|HRESULT"
+  ],
+  "admission": {
+    "four-planes-nameable": "found",
+    "degrades-honestly": "found",
+    "contracts-not-internals": "partial",
+    "respects-operator-policy": "found",
+    "standalone-before-connected": "found",
+    "pipeline-discoverable": "found"
+  },
+  "classSuggestion": "engine",
+  "verdict": "promote-candidate",
+  "reasons": [
+    "5/6 admission criteria found",
+    "degradation evidence present",
+    "class hint: engine"
+  ],
+  "confidence": "auto-scan inference — adapter or operator review required before registry"
+}

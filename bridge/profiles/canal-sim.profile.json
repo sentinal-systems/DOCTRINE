@@ -1,0 +1,80 @@
+{
+  "project": "canal-sim",
+  "sourceDir": "CascadeProjects",
+  "path": "C:\\Users\\htsou\\CascadeProjects\\canal-sim",
+  "scannedAt": "2026-10-14T18:46:08.857Z",
+  "census": {
+    "files": 12,
+    "codeFiles": 5,
+    "filesRead": 7,
+    "exts": {
+      ".gd": 4,
+      ".tscn": 4,
+      ".godot": 1,
+      ".md": 1,
+      ".json": 1,
+      ".py": 1
+    }
+  },
+  "package": null,
+  "surfaces": [
+    "cli",
+    "python"
+  ],
+  "pipeline": {
+    "input": [
+      "readFile|createReadStream|File\\.Read|ifstr",
+      "process\\.argv|commander|yargs|argparse|arg",
+      "WebSocket|ws:\\/\\/|HttpClient|TcpClient|Udp"
+    ],
+    "transform": null,
+    "output": [
+      "writeFile|createWriteStream|File\\.Write|of",
+      "console\\.(log|table)|std::cout|printf|Cons"
+    ]
+  },
+  "planes": {
+    "p0_sovereignCore": {
+      "evidence": [
+        "5 code files",
+        "surfaces: cli, python"
+      ],
+      "present": true
+    },
+    "p1_integrationSurface": {
+      "evidence": [
+        "remote calls: https?:\\/\\/(?!localhost|127\\.), api\\.|endpoint|\\/v\\d\\/"
+      ],
+      "present": true
+    },
+    "p2_operatorPolicy": {
+      "evidence": [],
+      "present": false
+    },
+    "p3_hybridExecution": {
+      "evidence": [],
+      "present": false
+    }
+  },
+  "degradationEvidence": [
+    "timeout"
+  ],
+  "contracts": [],
+  "truthFlags": [
+    "error|errorHandler|HRESULT"
+  ],
+  "admission": {
+    "four-planes-nameable": "partial",
+    "degrades-honestly": "partial",
+    "contracts-not-internals": "absent",
+    "respects-operator-policy": "absent",
+    "standalone-before-connected": "found",
+    "pipeline-discoverable": "absent"
+  },
+  "classSuggestion": "unclear — review",
+  "verdict": "dormant",
+  "reasons": [
+    "no discoverable input→transform→output"
+  ],
+  "confidence": "auto-scan inference — adapter or operator review required before registry"
+}

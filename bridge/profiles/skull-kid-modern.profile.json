@@ -1,0 +1,91 @@
+{
+  "project": "skull-kid-modern",
+  "sourceDir": "CascadeProjects",
+  "path": "C:\\Users\\htsou\\CascadeProjects\\skull-kid-modern",
+  "scannedAt": "2026-10-14T18:46:18.622Z",
+  "census": {
+    "files": 14,
+    "codeFiles": 10,
+    "filesRead": 17,
+    "exts": {
+      ".html": 1,
+      ".json": 2,
+      ".js": 5,
+      ".md": 1,
+      ".jsx": 4,
+      ".css": 1
+    }
+  },
+  "package": {
+    "name": "skull-kid-modern",
+    "version": "1.0.0",
+    "deps": 7
+  },
+  "surfaces": [
+    "web UI",
+    "cli"
+  ],
+  "pipeline": {
+    "input": [
+      "readFile|createReadStream|File\\.Read|ifstr",
+      "process\\.argv|commander|yargs|argparse|arg"
+    ],
+    "transform": [
+      "score|scor|inference|infer|predict|analy[s"
+    ],
+    "output": [
+      "document\\.|getElementById|canvas|getContex"
+    ]
+  },
+  "planes": {
+    "p0_sovereignCore": {
+      "evidence": [
+        "10 code files",
+        "surfaces: web UI, cli",
+        "structured core types"
+      ],
+      "present": true
+    },
+    "p1_integrationSurface": {
+      "evidence": [
+        "remote calls: https?:\\/\\/(?!localhost|127\\.)",
+        "deps: react, react-dom, @vitejs/plugin-react, autoprefixer, postcss, tailwindcss"
+      ],
+      "present": true
+    },
+    "p2_operatorPolicy": {
+      "evidence": [],
+      "present": false
+    },
+    "p3_hybridExecution": {
+      "evidence": [
+        "local compute + remote input"
+      ],
+      "present": true
+    }
+  },
+  "degradationEvidence": [],
+  "contracts": [
+    "module\\.exports|export (default|function|c"
+  ],
+  "truthFlags": [
+    "version",
+    "health|status",
+    "error|errorHandler|HRESULT"
+  ],
+  "admission": {
+    "four-planes-nameable": "found",
+    "degrades-honestly": "absent",
+    "contracts-not-internals": "partial",
+    "respects-operator-policy": "absent",
+    "standalone-before-connected": "found",
+    "pipeline-discoverable": "found"
+  },
+  "classSuggestion": "engine",
+  "verdict": "reference",
+  "reasons": [
+    "3 found / 1 partial / 2 absent on admission test",
+    "real pipeline but doctrine gaps — useful fragments, not a product yet"
+  ],
+  "confidence": "auto-scan inference — adapter or operator review required before registry"
+}

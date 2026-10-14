@@ -1,0 +1,109 @@
+{
+  "project": "(HomeLab) VR Launcher",
+  "sourceDir": "Home Projects",
+  "path": "D:\\Home Projects\\(HomeLab) VR Launcher",
+  "scannedAt": "2026-10-14T18:46:25.903Z",
+  "census": {
+    "files": 86,
+    "codeFiles": 30,
+    "filesRead": 47,
+    "exts": {
+      ".md": 7,
+      ".sln": 1,
+      ".slnx": 1,
+      ".xaml": 2,
+      ".cs": 7,
+      ".csproj": 2,
+      ".txt": 5,
+      ".hpp": 2,
+      ".cpp": 3,
+      ".h": 17,
+      ".c": 5,
+      ".cmake": 22,
+      ".lib": 5,
+      "(none)": 1,
+      ".zip": 1,
+      ".json": 3,
+      ".http": 1,
+      ".ps1": 1
+    }
+  },
+  "package": null,
+  "surfaces": [
+    "native (.NET)",
+    "native (C/C++)"
+  ],
+  "pipeline": {
+    "input": null,
+    "transform": [
+      "worker_threads|new Worker\\(|std::thread|Ta",
+      "score|scor|inference|infer|predict|analy[s",
+      "glsl|shader|hlsl|cuda|opencl|d3d11|directx"
+    ],
+    "output": [
+      "document\\.|getElementById|canvas|getContex"
+    ]
+  },
+  "planes": {
+    "p0_sovereignCore": {
+      "evidence": [
+        "30 code files",
+        "surfaces: native (.NET), native (C/C++)",
+        "structured core types"
+      ],
+      "present": true
+    },
+    "p1_integrationSurface": {
+      "evidence": [
+        "remote calls: https?:\\/\\/(?!localhost|127\\.), api\\.|endpoint|\\/v\\d\\/"
+      ],
+      "present": true
+    },
+    "p2_operatorPolicy": {
+      "evidence": [
+        "\\.env|config\\.(json|yaml|yml|toml|ini)",
+        "settings\\.|Settings\\.|appsettings",
+        "--config|getenv|process\\.env|GetEnvironmen"
+      ],
+      "present": true
+    },
+    "p3_hybridExecution": {
+      "evidence": [
+        "gpu/shaders",
+        "local compute + remote input"
+      ],
+      "present": true
+    }
+  },
+  "degradationEvidence": [
+    "fallback",
+    "unavailable",
+    "offline",
+    "catch\\s*\\(|try\\s*\\{|FAILED\\(",
+    "timeout",
+    "unreachable|return nullptr|return false"
+  ],
+  "contracts": [
+    "openapi|swagger",
+    "ipcMain\\.handle|app\\.(get|post|put|delete)"
+  ],
+  "truthFlags": [
+    "version",
+    "health|status",
+    "error|errorHandler|HRESULT"
+  ],
+  "admission": {
+    "four-planes-nameable": "found",
+    "degrades-honestly": "found",
+    "contracts-not-internals": "found",
+    "respects-operator-policy": "found",
+    "standalone-before-connected": "found",
+    "pipeline-discoverable": "absent"
+  },
+  "classSuggestion": "module (host-extension)",
+  "verdict": "reference",
+  "reasons": [
+    "host-extension shape (mod/plugin/hook lib) — attaches to a foreign host; judged on contracts, not standalone pipeline"
+  ],
+  "confidence": "auto-scan inference — adapter or operator review required before registry"
+}

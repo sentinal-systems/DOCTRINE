@@ -1,0 +1,73 @@
+{
+  "project": "cnc_game",
+  "sourceDir": "CascadeProjects",
+  "path": "C:\\Users\\htsou\\CascadeProjects\\cnc_game",
+  "scannedAt": "2026-10-14T18:46:09.566Z",
+  "census": {
+    "files": 28,
+    "codeFiles": 12,
+    "filesRead": 13,
+    "exts": {
+      ".svg": 1,
+      ".import": 1,
+      ".godot": 1,
+      ".tscn": 1,
+      ".gd": 12,
+      ".uid": 12
+    }
+  },
+  "package": null,
+  "surfaces": [],
+  "pipeline": {
+    "input": [
+      "readFile|createReadStream|File\\.Read|ifstr"
+    ],
+    "transform": null,
+    "output": [
+      "console\\.(log|table)|std::cout|printf|Cons",
+      "document\\.|getElementById|canvas|getContex",
+      "emit\\(|broadcast|Send\\(|SendAsync"
+    ]
+  },
+  "planes": {
+    "p0_sovereignCore": {
+      "evidence": [
+        "12 code files"
+      ],
+      "present": true
+    },
+    "p1_integrationSurface": {
+      "evidence": [],
+      "present": false
+    },
+    "p2_operatorPolicy": {
+      "evidence": [],
+      "present": false
+    },
+    "p3_hybridExecution": {
+      "evidence": [],
+      "present": false
+    }
+  },
+  "degradationEvidence": [
+    "unreachable|return nullptr|return false"
+  ],
+  "contracts": [],
+  "truthFlags": [
+    "health|status"
+  ],
+  "admission": {
+    "four-planes-nameable": "partial",
+    "degrades-honestly": "partial",
+    "contracts-not-internals": "absent",
+    "respects-operator-policy": "absent",
+    "standalone-before-connected": "found",
+    "pipeline-discoverable": "absent"
+  },
+  "classSuggestion": "unclear — review",
+  "verdict": "dormant",
+  "reasons": [
+    "no discoverable input→transform→output"
+  ],
+  "confidence": "auto-scan inference — adapter or operator review required before registry"
+}

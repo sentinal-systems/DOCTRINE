@@ -1,0 +1,125 @@
+{
+  "project": "DayzTry1",
+  "sourceDir": "Home Projects",
+  "path": "D:\\Home Projects\\DayzTry1",
+  "scannedAt": "2026-10-14T18:46:34.909Z",
+  "census": {
+    "files": 400,
+    "codeFiles": 242,
+    "filesRead": 120,
+    "exts": {
+      ".cpp": 65,
+      ".hpp": 123,
+      ".props": 2,
+      ".h": 35,
+      ".inl": 9,
+      ".cmake": 9,
+      ".lib": 31,
+      ".sln": 1,
+      ".vcxproj": 17,
+      ".filters": 17,
+      ".ini": 1,
+      ".md": 15,
+      ".txt": 10,
+      ".mm": 7,
+      ".frag": 2,
+      ".vert": 2,
+      ".sh": 1,
+      ".gradle": 3,
+      ".xml": 1,
+      ".kt": 1,
+      ".toml": 1,
+      ".pbxproj": 2,
+      ".plist": 2,
+      ".storyboard": 2,
+      "(none)": 18,
+      ".bat": 18,
+      ".emscripten": 5
+    }
+  },
+  "package": null,
+  "surfaces": [
+    "api/server",
+    "native (.NET)",
+    "native (C/C++)"
+  ],
+  "pipeline": {
+    "input": [
+      "readFile|createReadStream|File\\.Read|ifstr"
+    ],
+    "transform": [
+      "score|scor|inference|infer|predict|analy[s",
+      "wgsl|webgpu|getContext\\(['\"]webgl",
+      "glsl|shader|hlsl|cuda|opencl|d3d11|directx"
+    ],
+    "output": [
+      "writeFile|createWriteStream|File\\.Write|of",
+      "console\\.(log|table)|std::cout|printf|Cons",
+      "document\\.|getElementById|canvas|getContex",
+      "emit\\(|broadcast|Send\\(|SendAsync"
+    ]
+  },
+  "planes": {
+    "p0_sovereignCore": {
+      "evidence": [
+        "242 code files",
+        "surfaces: api/server, native (.NET), native (C/C++)",
+        "structured core types"
+      ],
+      "present": true
+    },
+    "p1_integrationSurface": {
+      "evidence": [
+        "remote calls: https?:\\/\\/(?!localhost|127\\.), api\\.|endpoint|\\/v\\d\\/"
+      ],
+      "present": true
+    },
+    "p2_operatorPolicy": {
+      "evidence": [
+        "settings\\.|Settings\\.|appsettings"
+      ],
+      "present": true
+    },
+    "p3_hybridExecution": {
+      "evidence": [
+        "gpu/shaders",
+        "local compute + remote input"
+      ],
+      "present": true
+    }
+  },
+  "degradationEvidence": [
+    "fallback",
+    "unavailable",
+    "offline",
+    "retry|backoff",
+    "catch\\s*\\(|try\\s*\\{|FAILED\\(",
+    "timeout",
+    "unreachable|return nullptr|return false"
+  ],
+  "contracts": [
+    "interface \\w+|type \\w+ =|public (class|int",
+    "ipcMain\\.handle|app\\.(get|post|put|delete)"
+  ],
+  "truthFlags": [
+    "version",
+    "health|status",
+    "error|errorHandler|HRESULT"
+  ],
+  "admission": {
+    "four-planes-nameable": "found",
+    "degrades-honestly": "found",
+    "contracts-not-internals": "found",
+    "respects-operator-policy": "found",
+    "standalone-before-connected": "found",
+    "pipeline-discoverable": "found"
+  },
+  "classSuggestion": "engine",
+  "verdict": "promote-candidate",
+  "reasons": [
+    "6/6 admission criteria found",
+    "degradation evidence present",
+    "class hint: engine"
+  ],
+  "confidence": "auto-scan inference — adapter or operator review required before registry"
+}

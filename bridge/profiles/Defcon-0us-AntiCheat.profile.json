@@ -1,0 +1,111 @@
+{
+  "project": "Defcon-0us-AntiCheat",
+  "sourceDir": "CascadeProjects",
+  "path": "C:\\Users\\htsou\\CascadeProjects\\Defcon-0us-AntiCheat",
+  "scannedAt": "2026-10-14T18:46:09.770Z",
+  "census": {
+    "files": 41,
+    "codeFiles": 39,
+    "filesRead": 42,
+    "exts": {
+      ".wav": 1,
+      ".md": 1,
+      ".ps1": 3,
+      ".py": 36
+    }
+  },
+  "package": null,
+  "surfaces": [
+    "api/server",
+    "cli",
+    "python"
+  ],
+  "pipeline": {
+    "input": [
+      "\\bfetch\\s*\\(",
+      "readFile|createReadStream|File\\.Read|ifstr",
+      "process\\.argv|commander|yargs|argparse|arg",
+      "WebSocket|ws:\\/\\/|HttpClient|TcpClient|Udp"
+    ],
+    "transform": [
+      "worker_threads|new Worker\\(|std::thread|Ta",
+      "\\.map\\(|\\.filter\\(|\\.reduce\\(|foreach|std:",
+      "score|scor|inference|infer|predict|analy[s",
+      "glsl|shader|hlsl|cuda|opencl|d3d11|directx"
+    ],
+    "output": [
+      "writeFile|createWriteStream|File\\.Write|of",
+      "res\\.(send|json|end)",
+      "console\\.(log|table)|std::cout|printf|Cons",
+      "document\\.|getElementById|canvas|getContex",
+      "emit\\(|broadcast|Send\\(|SendAsync"
+    ]
+  },
+  "planes": {
+    "p0_sovereignCore": {
+      "evidence": [
+        "39 code files",
+        "surfaces: api/server, cli, python",
+        "structured core types"
+      ],
+      "present": true
+    },
+    "p1_integrationSurface": {
+      "evidence": [
+        "remote calls: https?:\\/\\/(?!localhost|127\\.), api\\.|endpoint|\\/v\\d\\/"
+      ],
+      "present": true
+    },
+    "p2_operatorPolicy": {
+      "evidence": [
+        "\\.env|config\\.(json|yaml|yml|toml|ini)",
+        "settings\\.|Settings\\.|appsettings",
+        "--config|getenv|process\\.env|GetEnvironmen"
+      ],
+      "present": true
+    },
+    "p3_hybridExecution": {
+      "evidence": [
+        "gpu/shaders",
+        "workers",
+        "local compute + remote input"
+      ],
+      "present": true
+    }
+  },
+  "degradationEvidence": [
+    "fallback",
+    "degrad",
+    "offline",
+    "stale",
+    "retry|backoff",
+    "catch\\s*\\(|try\\s*\\{|FAILED\\(",
+    "timeout",
+    "unreachable|return nullptr|return false"
+  ],
+  "contracts": [
+    "interface \\w+|type \\w+ =|public (class|int"
+  ],
+  "truthFlags": [
+    "version",
+    "health|status",
+    "uptime",
+    "error|errorHandler|HRESULT"
+  ],
+  "admission": {
+    "four-planes-nameable": "found",
+    "degrades-honestly": "found",
+    "contracts-not-internals": "partial",
+    "respects-operator-policy": "found",
+    "standalone-before-connected": "found",
+    "pipeline-discoverable": "found"
+  },
+  "classSuggestion": "engine",
+  "verdict": "promote-candidate",
+  "reasons": [
+    "5/6 admission criteria found",
+    "degradation evidence present",
+    "class hint: engine"
+  ],
+  "confidence": "auto-scan inference — adapter or operator review required before registry"
+}

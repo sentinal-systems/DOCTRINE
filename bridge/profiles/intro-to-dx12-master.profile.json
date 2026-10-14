@@ -1,0 +1,101 @@
+{
+  "project": "intro-to-dx12-master",
+  "sourceDir": "Home Projects",
+  "path": "D:\\Home Projects\\intro-to-dx12-master",
+  "scannedAt": "2026-10-14T18:46:39.337Z",
+  "census": {
+    "files": 400,
+    "codeFiles": 141,
+    "filesRead": 120,
+    "exts": {
+      ".md": 1,
+      ".sln": 31,
+      ".cpp": 86,
+      ".suo": 5,
+      ".vcxproj": 30,
+      ".filters": 30,
+      ".user": 30,
+      ".h": 55,
+      ".hlsl": 83,
+      ".txt": 19,
+      ".m3d": 1,
+      ".cso": 2,
+      ".dds": 24,
+      ".bmp": 3
+    }
+  },
+  "package": null,
+  "surfaces": [
+    "native (.NET)",
+    "native (C/C++)"
+  ],
+  "pipeline": {
+    "input": [
+      "readFile|createReadStream|File\\.Read|ifstr",
+      "serialport|SerialPort|waveIn|Wasapi|WASAPI"
+    ],
+    "transform": [
+      "glsl|shader|hlsl|cuda|opencl|d3d11|directx"
+    ],
+    "output": [
+      "writeFile|createWriteStream|File\\.Write|of",
+      "document\\.|getElementById|canvas|getContex"
+    ]
+  },
+  "planes": {
+    "p0_sovereignCore": {
+      "evidence": [
+        "141 code files",
+        "surfaces: native (.NET), native (C/C++)",
+        "structured core types"
+      ],
+      "present": true
+    },
+    "p1_integrationSurface": {
+      "evidence": [
+        "remote calls: https?:\\/\\/(?!localhost|127\\.)"
+      ],
+      "present": true
+    },
+    "p2_operatorPolicy": {
+      "evidence": [
+        "settings\\.|Settings\\.|appsettings"
+      ],
+      "present": true
+    },
+    "p3_hybridExecution": {
+      "evidence": [
+        "gpu/shaders"
+      ],
+      "present": true
+    }
+  },
+  "degradationEvidence": [
+    "fallback",
+    "catch\\s*\\(|try\\s*\\{|FAILED\\(",
+    "unreachable|return nullptr|return false"
+  ],
+  "contracts": [
+    "ipcMain\\.handle|app\\.(get|post|put|delete)"
+  ],
+  "truthFlags": [
+    "version",
+    "error|errorHandler|HRESULT"
+  ],
+  "admission": {
+    "four-planes-nameable": "found",
+    "degrades-honestly": "found",
+    "contracts-not-internals": "partial",
+    "respects-operator-policy": "found",
+    "standalone-before-connected": "found",
+    "pipeline-discoverable": "found"
+  },
+  "classSuggestion": "engine",
+  "verdict": "promote-candidate",
+  "reasons": [
+    "5/6 admission criteria found",
+    "degradation evidence present",
+    "class hint: engine"
+  ],
+  "confidence": "auto-scan inference — adapter or operator review required before registry"
+}

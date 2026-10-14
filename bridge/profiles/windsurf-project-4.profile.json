@@ -1,0 +1,60 @@
+{
+  "project": "windsurf-project-4",
+  "sourceDir": "CascadeProjects",
+  "path": "C:\\Users\\htsou\\CascadeProjects\\windsurf-project-4",
+  "scannedAt": "2026-10-14T18:46:24.585Z",
+  "census": {
+    "files": 9,
+    "codeFiles": 0,
+    "filesRead": 0,
+    "exts": {
+      ".zip": 1,
+      ".dll": 4,
+      ".ini": 2,
+      "(none)": 2
+    }
+  },
+  "package": null,
+  "surfaces": [],
+  "pipeline": {
+    "input": null,
+    "transform": null,
+    "output": null
+  },
+  "planes": {
+    "p0_sovereignCore": {
+      "evidence": [],
+      "present": false
+    },
+    "p1_integrationSurface": {
+      "evidence": [],
+      "present": false
+    },
+    "p2_operatorPolicy": {
+      "evidence": [],
+      "present": false
+    },
+    "p3_hybridExecution": {
+      "evidence": [],
+      "present": false
+    }
+  },
+  "degradationEvidence": [],
+  "contracts": [],
+  "truthFlags": [],
+  "admission": {
+    "four-planes-nameable": "partial",
+    "degrades-honestly": "absent",
+    "contracts-not-internals": "absent",
+    "respects-operator-policy": "absent",
+    "standalone-before-connected": "partial",
+    "pipeline-discoverable": "absent"
+  },
+  "classSuggestion": null,
+  "verdict": "dormant",
+  "reasons": [
+    "no discoverable input→transform→output",
+    "too little code to carry a pipeline"
+  ],
+  "confidence": "auto-scan inference — adapter or operator review required before registry"
+}

@@ -1,0 +1,153 @@
+{
+  "project": "audio visulizer",
+  "sourceDir": "Home Projects",
+  "path": "D:\\Home Projects\\audio visulizer",
+  "scannedAt": "2026-10-14T18:46:29.966Z",
+  "census": {
+    "files": 400,
+    "codeFiles": 151,
+    "filesRead": 120,
+    "exts": {
+      ".json": 6,
+      ".props": 1,
+      ".js": 16,
+      ".txt": 17,
+      ".html": 6,
+      ".css": 4,
+      ".cs": 2,
+      ".sln": 2,
+      ".slnx": 1,
+      ".cpp": 10,
+      ".h": 116,
+      ".lastbuildstate": 5,
+      ".tlog": 33,
+      ".recipe": 4,
+      ".ilk": 1,
+      ".obj": 45,
+      ".pdb": 2,
+      "(none)": 4,
+      ".vcxproj": 7,
+      ".filters": 4,
+      ".rule": 6,
+      ".cmake": 7,
+      ".bin": 2,
+      ".c": 1,
+      ".exe": 3,
+      ".check_cache": 1,
+      ".verify_globs": 1,
+      ".yaml": 1,
+      ".stamp": 2,
+      ".depend": 2,
+      ".list": 1,
+      ".md": 10,
+      ".py": 1,
+      ".xml": 6,
+      ".ico": 1,
+      ".wav": 7,
+      ".zip": 2,
+      ".png": 27,
+      ".caf": 5,
+      ".mp3": 5,
+      ".jpg": 1,
+      ".path": 1,
+      ".ogg": 19,
+      ".keystore": 1,
+      ".gradle": 1
+    }
+  },
+  "package": null,
+  "surfaces": [
+    "desktop (electron)",
+    "web UI",
+    "api/server",
+    "native (.NET)",
+    "native (C/C++)",
+    "cli",
+    "python"
+  ],
+  "pipeline": {
+    "input": [
+      "readFile|createReadStream|File\\.Read|ifstr",
+      "process\\.argv|commander|yargs|argparse|arg",
+      "serialport|SerialPort|waveIn|Wasapi|WASAPI"
+    ],
+    "transform": [
+      "\\.map\\(|\\.filter\\(|\\.reduce\\(|foreach|std:",
+      "score|scor|inference|infer|predict|analy[s",
+      "glsl|shader|hlsl|cuda|opencl|d3d11|directx"
+    ],
+    "output": [
+      "writeFile|createWriteStream|File\\.Write|of",
+      "console\\.(log|table)|std::cout|printf|Cons",
+      "document\\.|getElementById|canvas|getContex",
+      "emit\\(|broadcast|Send\\(|SendAsync"
+    ]
+  },
+  "planes": {
+    "p0_sovereignCore": {
+      "evidence": [
+        "151 code files",
+        "surfaces: desktop (electron), web UI, api/server, native (.NET), native (C/C++), cli, python",
+        "structured core types"
+      ],
+      "present": true
+    },
+    "p1_integrationSurface": {
+      "evidence": [
+        "remote calls: https?:\\/\\/(?!localhost|127\\.), api\\.|endpoint|\\/v\\d\\/"
+      ],
+      "present": true
+    },
+    "p2_operatorPolicy": {
+      "evidence": [
+        "\\.env|config\\.(json|yaml|yml|toml|ini)",
+        "settings\\.|Settings\\.|appsettings",
+        "--config|getenv|process\\.env|GetEnvironmen"
+      ],
+      "present": true
+    },
+    "p3_hybridExecution": {
+      "evidence": [
+        "gpu/shaders",
+        "local compute + remote input"
+      ],
+      "present": true
+    }
+  },
+  "degradationEvidence": [
+    "fallback",
+    "unavailable",
+    "offline",
+    "stale",
+    "retry|backoff",
+    "catch\\s*\\(|try\\s*\\{|FAILED\\(",
+    "timeout",
+    "unreachable|return nullptr|return false"
+  ],
+  "contracts": [
+    "module\\.exports|export (default|function|c",
+    "interface \\w+|type \\w+ =|public (class|int",
+    "ipcMain\\.handle|app\\.(get|post|put|delete)"
+  ],
+  "truthFlags": [
+    "version",
+    "health|status",
+    "error|errorHandler|HRESULT"
+  ],
+  "admission": {
+    "four-planes-nameable": "found",
+    "degrades-honestly": "found",
+    "contracts-not-internals": "found",
+    "respects-operator-policy": "found",
+    "standalone-before-connected": "found",
+    "pipeline-discoverable": "found"
+  },
+  "classSuggestion": "engine",
+  "verdict": "promote-candidate",
+  "reasons": [
+    "6/6 admission criteria found",
+    "degradation evidence present",
+    "class hint: engine"
+  ],
+  "confidence": "auto-scan inference — adapter or operator review required before registry"
+}

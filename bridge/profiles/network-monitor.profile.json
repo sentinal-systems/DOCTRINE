@@ -1,0 +1,115 @@
+{
+  "project": "network-monitor",
+  "sourceDir": "CascadeProjects",
+  "path": "C:\\Users\\htsou\\CascadeProjects\\network-monitor",
+  "scannedAt": "2026-10-14T18:46:13.275Z",
+  "census": {
+    "files": 65,
+    "codeFiles": 47,
+    "filesRead": 58,
+    "exts": {
+      ".js": 15,
+      ".map": 12,
+      ".css": 2,
+      ".html": 2,
+      ".ts": 14,
+      ".json": 4,
+      ".tsx": 16
+    }
+  },
+  "package": {
+    "name": "networld-monitor",
+    "version": "1.0.0",
+    "deps": 17
+  },
+  "surfaces": [
+    "desktop (electron)",
+    "web UI",
+    "api/server",
+    "cli"
+  ],
+  "pipeline": {
+    "input": [
+      "\\bfetch\\s*\\(",
+      "\\baxios\\b",
+      "https?\\.get|https?\\.request",
+      "readFile|createReadStream|File\\.Read|ifstr",
+      "process\\.argv|commander|yargs|argparse|arg"
+    ],
+    "transform": [
+      "\\.map\\(|\\.filter\\(|\\.reduce\\(|foreach|std:",
+      "score|scor|inference|infer|predict|analy[s"
+    ],
+    "output": [
+      "writeFile|createWriteStream|File\\.Write|of",
+      "console\\.(log|table)|std::cout|printf|Cons",
+      "document\\.|getElementById|canvas|getContex"
+    ]
+  },
+  "planes": {
+    "p0_sovereignCore": {
+      "evidence": [
+        "47 code files",
+        "surfaces: desktop (electron), web UI, api/server, cli",
+        "structured core types"
+      ],
+      "present": true
+    },
+    "p1_integrationSurface": {
+      "evidence": [
+        "remote calls: https?:\\/\\/(?!localhost|127\\.), api\\.|endpoint|\\/v\\d\\/",
+        "deps: leaflet, lucide-react, react, react-dom, @types/leaflet, @types/node"
+      ],
+      "present": true
+    },
+    "p2_operatorPolicy": {
+      "evidence": [
+        "\\.env|config\\.(json|yaml|yml|toml|ini)",
+        "--config|getenv|process\\.env|GetEnvironmen"
+      ],
+      "present": true
+    },
+    "p3_hybridExecution": {
+      "evidence": [
+        "local compute + remote input"
+      ],
+      "present": true
+    }
+  },
+  "degradationEvidence": [
+    "fallback",
+    "degrad",
+    "unavailable",
+    "offline",
+    "stale",
+    "retry|backoff",
+    "catch\\s*\\(|try\\s*\\{|FAILED\\(",
+    "timeout"
+  ],
+  "contracts": [
+    "module\\.exports|export (default|function|c",
+    "interface \\w+|type \\w+ =|public (class|int",
+    "ipcMain\\.handle|app\\.(get|post|put|delete)"
+  ],
+  "truthFlags": [
+    "version",
+    "health|status",
+    "error|errorHandler|HRESULT"
+  ],
+  "admission": {
+    "four-planes-nameable": "found",
+    "degrades-honestly": "found",
+    "contracts-not-internals": "found",
+    "respects-operator-policy": "found",
+    "standalone-before-connected": "found",
+    "pipeline-discoverable": "found"
+  },
+  "classSuggestion": "engine",
+  "verdict": "promote-candidate",
+  "reasons": [
+    "6/6 admission criteria found",
+    "degradation evidence present",
+    "class hint: engine"
+  ],
+  "confidence": "auto-scan inference — adapter or operator review required before registry"
+}

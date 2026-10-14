@@ -1,0 +1,75 @@
+{
+  "project": "fractal-canvas",
+  "sourceDir": "CascadeProjects",
+  "path": "C:\\Users\\htsou\\CascadeProjects\\fractal-canvas",
+  "scannedAt": "2026-10-14T18:46:09.882Z",
+  "census": {
+    "files": 15,
+    "codeFiles": 11,
+    "filesRead": 15,
+    "exts": {
+      ".lock": 1,
+      ".toml": 1,
+      ".md": 1,
+      ".rs": 11,
+      ".wgsl": 1
+    }
+  },
+  "package": null,
+  "surfaces": [],
+  "pipeline": {
+    "input": null,
+    "transform": [
+      "\\.map\\(|\\.filter\\(|\\.reduce\\(|foreach|std:",
+      "wgsl|webgpu|getContext\\(['\"]webgl",
+      "glsl|shader|hlsl|cuda|opencl|d3d11|directx"
+    ],
+    "output": [
+      "document\\.|getElementById|canvas|getContex"
+    ]
+  },
+  "planes": {
+    "p0_sovereignCore": {
+      "evidence": [
+        "11 code files",
+        "structured core types"
+      ],
+      "present": true
+    },
+    "p1_integrationSurface": {
+      "evidence": [],
+      "present": false
+    },
+    "p2_operatorPolicy": {
+      "evidence": [],
+      "present": false
+    },
+    "p3_hybridExecution": {
+      "evidence": [
+        "gpu/shaders"
+      ],
+      "present": true
+    }
+  },
+  "degradationEvidence": [
+    "fallback"
+  ],
+  "contracts": [],
+  "truthFlags": [
+    "version"
+  ],
+  "admission": {
+    "four-planes-nameable": "partial",
+    "degrades-honestly": "partial",
+    "contracts-not-internals": "absent",
+    "respects-operator-policy": "absent",
+    "standalone-before-connected": "found",
+    "pipeline-discoverable": "absent"
+  },
+  "classSuggestion": "unclear — review",
+  "verdict": "dormant",
+  "reasons": [
+    "no discoverable input→transform→output"
+  ],
+  "confidence": "auto-scan inference — adapter or operator review required before registry"
+}

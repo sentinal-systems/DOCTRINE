@@ -1,0 +1,86 @@
+{
+  "project": "ai-portal",
+  "sourceDir": "CascadeProjects",
+  "path": "C:\\Users\\htsou\\CascadeProjects\\ai-portal",
+  "scannedAt": "2026-10-14T18:46:07.981Z",
+  "census": {
+    "files": 21,
+    "codeFiles": 8,
+    "filesRead": 14,
+    "exts": {
+      ".md": 3,
+      ".mjs": 2,
+      ".ts": 4,
+      ".json": 3,
+      ".svg": 5,
+      ".ico": 1,
+      ".css": 1,
+      ".tsx": 2
+    }
+  },
+  "package": {
+    "name": "ai-portal",
+    "version": "0.1.0",
+    "deps": 14
+  },
+  "surfaces": [
+    "web UI"
+  ],
+  "pipeline": {
+    "input": null,
+    "transform": [
+      "score|scor|inference|infer|predict|analy[s"
+    ],
+    "output": null
+  },
+  "planes": {
+    "p0_sovereignCore": {
+      "evidence": [
+        "8 code files",
+        "surfaces: web UI"
+      ],
+      "present": true
+    },
+    "p1_integrationSurface": {
+      "evidence": [
+        "remote calls: https?:\\/\\/(?!localhost|127\\.)",
+        "deps: clsx, lucide-react, next, react, react-dom, tailwind-merge"
+      ],
+      "present": true
+    },
+    "p2_operatorPolicy": {
+      "evidence": [],
+      "present": false
+    },
+    "p3_hybridExecution": {
+      "evidence": [
+        "local compute + remote input"
+      ],
+      "present": true
+    }
+  },
+  "degradationEvidence": [
+    "retry|backoff"
+  ],
+  "contracts": [
+    "module\\.exports|export (default|function|c",
+    "interface \\w+|type \\w+ =|public (class|int"
+  ],
+  "truthFlags": [
+    "version"
+  ],
+  "admission": {
+    "four-planes-nameable": "found",
+    "degrades-honestly": "partial",
+    "contracts-not-internals": "found",
+    "respects-operator-policy": "absent",
+    "standalone-before-connected": "found",
+    "pipeline-discoverable": "absent"
+  },
+  "classSuggestion": "unclear — review",
+  "verdict": "dormant",
+  "reasons": [
+    "no discoverable input→transform→output"
+  ],
+  "confidence": "auto-scan inference — adapter or operator review required before registry"
+}

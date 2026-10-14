@@ -1,0 +1,83 @@
+{
+  "project": "cmake-4.3.0-rc1",
+  "sourceDir": "Home Projects",
+  "path": "D:\\Home Projects\\cmake-4.3.0-rc1",
+  "scannedAt": "2026-10-14T18:46:30.807Z",
+  "census": {
+    "files": 400,
+    "codeFiles": 16,
+    "filesRead": 20,
+    "exts": {
+      "(none)": 5,
+      ".txt": 26,
+      ".el": 1,
+      ".m4": 1,
+      ".in": 6,
+      ".pl": 1,
+      ".vim": 2,
+      ".cmake": 10,
+      ".rst": 316,
+      ".cc": 2,
+      ".cxx": 14,
+      ".h": 14,
+      ".json": 2
+    }
+  },
+  "package": null,
+  "surfaces": [
+    "native (C/C++)"
+  ],
+  "pipeline": {
+    "input": null,
+    "transform": null,
+    "output": [
+      "console\\.(log|table)|std::cout|printf|Cons"
+    ]
+  },
+  "planes": {
+    "p0_sovereignCore": {
+      "evidence": [
+        "16 code files",
+        "surfaces: native (C/C++)",
+        "structured core types"
+      ],
+      "present": true
+    },
+    "p1_integrationSurface": {
+      "evidence": [],
+      "present": false
+    },
+    "p2_operatorPolicy": {
+      "evidence": [],
+      "present": false
+    },
+    "p3_hybridExecution": {
+      "evidence": [],
+      "present": false
+    }
+  },
+  "degradationEvidence": [
+    "catch\\s*\\(|try\\s*\\{|FAILED\\("
+  ],
+  "contracts": [
+    "ipcMain\\.handle|app\\.(get|post|put|delete)"
+  ],
+  "truthFlags": [
+    "version",
+    "error|errorHandler|HRESULT"
+  ],
+  "admission": {
+    "four-planes-nameable": "partial",
+    "degrades-honestly": "partial",
+    "contracts-not-internals": "partial",
+    "respects-operator-policy": "absent",
+    "standalone-before-connected": "found",
+    "pipeline-discoverable": "absent"
+  },
+  "classSuggestion": "unclear — review",
+  "verdict": "dormant",
+  "reasons": [
+    "no discoverable input→transform→output"
+  ],
+  "confidence": "auto-scan inference — adapter or operator review required before registry"
+}

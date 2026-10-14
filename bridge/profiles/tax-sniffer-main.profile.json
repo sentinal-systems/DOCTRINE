@@ -1,0 +1,94 @@
+{
+  "project": "tax-sniffer-main",
+  "sourceDir": "Home Projects",
+  "path": "D:\\Home Projects\\tax-sniffer-main",
+  "scannedAt": "2026-10-14T18:46:41.214Z",
+  "census": {
+    "files": 20,
+    "codeFiles": 11,
+    "filesRead": 25,
+    "exts": {
+      ".html": 2,
+      ".json": 7,
+      ".tsx": 4,
+      ".ts": 5,
+      ".md": 2
+    }
+  },
+  "package": null,
+  "surfaces": [
+    "web UI",
+    "api/server",
+    "cli"
+  ],
+  "pipeline": {
+    "input": [
+      "process\\.argv|commander|yargs|argparse|arg"
+    ],
+    "transform": [
+      "score|scor|inference|infer|predict|analy[s"
+    ],
+    "output": [
+      "res\\.(send|json|end)",
+      "console\\.(log|table)|std::cout|printf|Cons",
+      "document\\.|getElementById|canvas|getContex"
+    ]
+  },
+  "planes": {
+    "p0_sovereignCore": {
+      "evidence": [
+        "11 code files",
+        "surfaces: web UI, api/server, cli",
+        "structured core types"
+      ],
+      "present": true
+    },
+    "p1_integrationSurface": {
+      "evidence": [
+        "remote calls: https?:\\/\\/(?!localhost|127\\.)"
+      ],
+      "present": true
+    },
+    "p2_operatorPolicy": {
+      "evidence": [
+        "\\.env|config\\.(json|yaml|yml|toml|ini)",
+        "--config|getenv|process\\.env|GetEnvironmen"
+      ],
+      "present": true
+    },
+    "p3_hybridExecution": {
+      "evidence": [
+        "local compute + remote input"
+      ],
+      "present": true
+    }
+  },
+  "degradationEvidence": [
+    "unreachable|return nullptr|return false"
+  ],
+  "contracts": [
+    "module\\.exports|export (default|function|c",
+    "interface \\w+|type \\w+ =|public (class|int",
+    "ipcMain\\.handle|app\\.(get|post|put|delete)"
+  ],
+  "truthFlags": [
+    "version",
+    "health|status",
+    "error|errorHandler|HRESULT"
+  ],
+  "admission": {
+    "four-planes-nameable": "found",
+    "degrades-honestly": "partial",
+    "contracts-not-internals": "found",
+    "respects-operator-policy": "found",
+    "standalone-before-connected": "found",
+    "pipeline-discoverable": "found"
+  },
+  "classSuggestion": "engine",
+  "verdict": "reference",
+  "reasons": [
+    "5 found / 1 partial / 0 absent on admission test",
+    "real pipeline but doctrine gaps — useful fragments, not a product yet"
+  ],
+  "confidence": "auto-scan inference — adapter or operator review required before registry"
+}

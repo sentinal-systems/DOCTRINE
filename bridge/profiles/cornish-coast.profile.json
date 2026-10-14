@@ -1,0 +1,94 @@
+{
+  "project": "cornish-coast",
+  "sourceDir": "CascadeProjects",
+  "path": "C:\\Users\\htsou\\CascadeProjects\\cornish-coast",
+  "scannedAt": "2026-10-14T18:46:09.646Z",
+  "census": {
+    "files": 33,
+    "codeFiles": 23,
+    "filesRead": 33,
+    "exts": {
+      ".py": 23,
+      ".md": 1,
+      ".txt": 1,
+      ".frag": 4,
+      ".vert": 4
+    }
+  },
+  "package": null,
+  "surfaces": [
+    "python"
+  ],
+  "pipeline": {
+    "input": [
+      "readFile|createReadStream|File\\.Read|ifstr",
+      "WebSocket|ws:\\/\\/|HttpClient|TcpClient|Udp"
+    ],
+    "transform": [
+      "score|scor|inference|infer|predict|analy[s",
+      "glsl|shader|hlsl|cuda|opencl|d3d11|directx",
+      "\\.wasm|\\.wat|WebAssembly"
+    ],
+    "output": [
+      "writeFile|createWriteStream|File\\.Write|of",
+      "console\\.(log|table)|std::cout|printf|Cons",
+      "document\\.|getElementById|canvas|getContex"
+    ]
+  },
+  "planes": {
+    "p0_sovereignCore": {
+      "evidence": [
+        "23 code files",
+        "surfaces: python",
+        "structured core types"
+      ],
+      "present": true
+    },
+    "p1_integrationSurface": {
+      "evidence": [
+        "remote calls: https?:\\/\\/(?!localhost|127\\.)"
+      ],
+      "present": true
+    },
+    "p2_operatorPolicy": {
+      "evidence": [],
+      "present": false
+    },
+    "p3_hybridExecution": {
+      "evidence": [
+        "wasm",
+        "gpu/shaders",
+        "local compute + remote input"
+      ],
+      "present": true
+    }
+  },
+  "degradationEvidence": [
+    "fallback",
+    "unavailable",
+    "catch\\s*\\(|try\\s*\\{|FAILED\\(",
+    "timeout",
+    "unreachable|return nullptr|return false"
+  ],
+  "contracts": [],
+  "truthFlags": [
+    "version",
+    "health|status"
+  ],
+  "admission": {
+    "four-planes-nameable": "found",
+    "degrades-honestly": "found",
+    "contracts-not-internals": "absent",
+    "respects-operator-policy": "absent",
+    "standalone-before-connected": "found",
+    "pipeline-discoverable": "found"
+  },
+  "classSuggestion": "engine? (no contract seam detected)",
+  "verdict": "promote-candidate",
+  "reasons": [
+    "4/6 admission criteria found",
+    "degradation evidence present",
+    "class hint: engine? (no contract seam detected)"
+  ],
+  "confidence": "auto-scan inference — adapter or operator review required before registry"
+}

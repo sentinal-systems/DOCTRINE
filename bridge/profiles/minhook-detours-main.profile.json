@@ -1,0 +1,106 @@
+{
+  "project": "minhook-detours-main",
+  "sourceDir": "Home Projects",
+  "path": "D:\\Home Projects\\minhook-detours-main",
+  "scannedAt": "2026-10-14T18:46:40.070Z",
+  "census": {
+    "files": 65,
+    "codeFiles": 44,
+    "filesRead": 46,
+    "exts": {
+      "(none)": 3,
+      ".sln": 1,
+      ".md": 2,
+      ".rc": 1,
+      ".vcxproj": 1,
+      ".filters": 1,
+      ".c": 8,
+      ".def": 1,
+      ".h": 44,
+      ".txt": 1,
+      ".inl": 2
+    }
+  },
+  "package": null,
+  "surfaces": [
+    "api/server",
+    "native (.NET)",
+    "native (C/C++)"
+  ],
+  "pipeline": {
+    "input": [
+      "readFile|createReadStream|File\\.Read|ifstr"
+    ],
+    "transform": [
+      "score|scor|inference|infer|predict|analy[s"
+    ],
+    "output": [
+      "console\\.(log|table)|std::cout|printf|Cons",
+      "document\\.|getElementById|canvas|getContex"
+    ]
+  },
+  "planes": {
+    "p0_sovereignCore": {
+      "evidence": [
+        "44 code files",
+        "surfaces: api/server, native (.NET), native (C/C++)",
+        "structured core types"
+      ],
+      "present": true
+    },
+    "p1_integrationSurface": {
+      "evidence": [
+        "remote calls: https?:\\/\\/(?!localhost|127\\.), api\\.|endpoint|\\/v\\d\\/"
+      ],
+      "present": true
+    },
+    "p2_operatorPolicy": {
+      "evidence": [
+        "settings\\.|Settings\\.|appsettings"
+      ],
+      "present": true
+    },
+    "p3_hybridExecution": {
+      "evidence": [
+        "local compute + remote input"
+      ],
+      "present": true
+    }
+  },
+  "degradationEvidence": [
+    "fallback",
+    "unavailable",
+    "offline",
+    "stale",
+    "retry|backoff",
+    "catch\\s*\\(|try\\s*\\{|FAILED\\(",
+    "timeout",
+    "unreachable|return nullptr|return false"
+  ],
+  "contracts": [
+    "interface \\w+|type \\w+ =|public (class|int",
+    "ipcMain\\.handle|app\\.(get|post|put|delete)"
+  ],
+  "truthFlags": [
+    "version",
+    "health|status",
+    "uptime",
+    "error|errorHandler|HRESULT"
+  ],
+  "admission": {
+    "four-planes-nameable": "found",
+    "degrades-honestly": "found",
+    "contracts-not-internals": "found",
+    "respects-operator-policy": "found",
+    "standalone-before-connected": "found",
+    "pipeline-discoverable": "found"
+  },
+  "classSuggestion": "engine",
+  "verdict": "promote-candidate",
+  "reasons": [
+    "6/6 admission criteria found",
+    "degradation evidence present",
+    "class hint: engine"
+  ],
+  "confidence": "auto-scan inference — adapter or operator review required before registry"
+}

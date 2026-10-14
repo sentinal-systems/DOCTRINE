@@ -1,0 +1,144 @@
+{
+  "project": "JUCE",
+  "sourceDir": "Home Projects",
+  "path": "D:\\Home Projects\\JUCE",
+  "scannedAt": "2026-10-14T18:46:39.859Z",
+  "census": {
+    "files": 400,
+    "codeFiles": 158,
+    "filesRead": 120,
+    "exts": {
+      ".md": 10,
+      ".txt": 12,
+      ".exe": 1,
+      ".py": 1,
+      ".css": 3,
+      "(none)": 5,
+      ".xml": 10,
+      ".html": 6,
+      ".ico": 4,
+      ".js": 2,
+      ".h": 116,
+      ".cpp": 32,
+      ".wav": 8,
+      ".json": 4,
+      ".zip": 2,
+      ".png": 73,
+      ".caf": 10,
+      ".mp3": 10,
+      ".jpg": 2,
+      ".path": 2,
+      ".ogg": 38,
+      ".keystore": 2,
+      ".obj": 2,
+      ".gradle": 3,
+      ".jar": 1,
+      ".properties": 2,
+      ".bat": 1,
+      ".entitlements": 1,
+      ".pbxproj": 2,
+      ".icns": 2,
+      ".plist": 2,
+      ".storyboard": 1,
+      ".nib": 1,
+      ".sln": 3,
+      ".vcxproj": 3,
+      ".filters": 3,
+      ".rc": 3,
+      ".jucer": 1,
+      ".mm": 15,
+      ".c": 1
+    }
+  },
+  "package": null,
+  "surfaces": [
+    "web UI",
+    "api/server",
+    "native (.NET)",
+    "native (C/C++)",
+    "cli",
+    "python"
+  ],
+  "pipeline": {
+    "input": [
+      "readFile|createReadStream|File\\.Read|ifstr",
+      "process\\.argv|commander|yargs|argparse|arg",
+      "serialport|SerialPort|waveIn|Wasapi|WASAPI"
+    ],
+    "transform": [
+      "\\.map\\(|\\.filter\\(|\\.reduce\\(|foreach|std:",
+      "score|scor|inference|infer|predict|analy[s",
+      "glsl|shader|hlsl|cuda|opencl|d3d11|directx"
+    ],
+    "output": [
+      "console\\.(log|table)|std::cout|printf|Cons",
+      "document\\.|getElementById|canvas|getContex",
+      "emit\\(|broadcast|Send\\(|SendAsync"
+    ]
+  },
+  "planes": {
+    "p0_sovereignCore": {
+      "evidence": [
+        "158 code files",
+        "surfaces: web UI, api/server, native (.NET), native (C/C++), cli, python",
+        "structured core types"
+      ],
+      "present": true
+    },
+    "p1_integrationSurface": {
+      "evidence": [
+        "remote calls: https?:\\/\\/(?!localhost|127\\.), api\\.|endpoint|\\/v\\d\\/"
+      ],
+      "present": true
+    },
+    "p2_operatorPolicy": {
+      "evidence": [
+        "\\.env|config\\.(json|yaml|yml|toml|ini)",
+        "settings\\.|Settings\\.|appsettings",
+        "--config|getenv|process\\.env|GetEnvironmen"
+      ],
+      "present": true
+    },
+    "p3_hybridExecution": {
+      "evidence": [
+        "gpu/shaders",
+        "local compute + remote input"
+      ],
+      "present": true
+    }
+  },
+  "degradationEvidence": [
+    "fallback",
+    "offline",
+    "retry|backoff",
+    "catch\\s*\\(|try\\s*\\{|FAILED\\(",
+    "timeout",
+    "unreachable|return nullptr|return false"
+  ],
+  "contracts": [
+    "module\\.exports|export (default|function|c",
+    "interface \\w+|type \\w+ =|public (class|int",
+    "ipcMain\\.handle|app\\.(get|post|put|delete)"
+  ],
+  "truthFlags": [
+    "version",
+    "health|status",
+    "error|errorHandler|HRESULT"
+  ],
+  "admission": {
+    "four-planes-nameable": "found",
+    "degrades-honestly": "found",
+    "contracts-not-internals": "found",
+    "respects-operator-policy": "found",
+    "standalone-before-connected": "found",
+    "pipeline-discoverable": "found"
+  },
+  "classSuggestion": "engine",
+  "verdict": "promote-candidate",
+  "reasons": [
+    "6/6 admission criteria found",
+    "degradation evidence present",
+    "class hint: engine"
+  ],
+  "confidence": "auto-scan inference — adapter or operator review required before registry"
+}

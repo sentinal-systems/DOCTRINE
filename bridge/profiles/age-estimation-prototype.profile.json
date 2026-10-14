@@ -1,0 +1,104 @@
+{
+  "project": "age-estimation-prototype",
+  "sourceDir": "CascadeProjects",
+  "path": "C:\\Users\\htsou\\CascadeProjects\\age-estimation-prototype",
+  "scannedAt": "2026-10-14T18:46:07.870Z",
+  "census": {
+    "files": 43,
+    "codeFiles": 20,
+    "filesRead": 28,
+    "exts": {
+      ".py": 17,
+      ".md": 5,
+      ".png": 2,
+      ".ipynb": 5,
+      ".jpg": 3,
+      ".txt": 3,
+      ".sh": 1,
+      "(none)": 1,
+      ".csv": 2,
+      ".yaml": 1,
+      ".js": 1,
+      ".html": 1,
+      ".css": 1
+    }
+  },
+  "package": null,
+  "surfaces": [
+    "web UI",
+    "cli",
+    "python"
+  ],
+  "pipeline": {
+    "input": [
+      "readFile|createReadStream|File\\.Read|ifstr",
+      "process\\.argv|commander|yargs|argparse|arg",
+      "serialport|SerialPort|waveIn|Wasapi|WASAPI"
+    ],
+    "transform": [
+      "onnxruntime|tensorflow|tesseract|ollama|op",
+      "score|scor|inference|infer|predict|analy[s",
+      "glsl|shader|hlsl|cuda|opencl|d3d11|directx"
+    ],
+    "output": [
+      "writeFile|createWriteStream|File\\.Write|of",
+      "console\\.(log|table)|std::cout|printf|Cons",
+      "document\\.|getElementById|canvas|getContex"
+    ]
+  },
+  "planes": {
+    "p0_sovereignCore": {
+      "evidence": [
+        "20 code files",
+        "surfaces: web UI, cli, python",
+        "structured core types"
+      ],
+      "present": true
+    },
+    "p1_integrationSurface": {
+      "evidence": [
+        "remote calls: https?:\\/\\/(?!localhost|127\\.)"
+      ],
+      "present": true
+    },
+    "p2_operatorPolicy": {
+      "evidence": [
+        "\\.env|config\\.(json|yaml|yml|toml|ini)"
+      ],
+      "present": true
+    },
+    "p3_hybridExecution": {
+      "evidence": [
+        "gpu/shaders",
+        "local compute + remote input"
+      ],
+      "present": true
+    }
+  },
+  "degradationEvidence": [
+    "retry|backoff",
+    "catch\\s*\\(|try\\s*\\{|FAILED\\("
+  ],
+  "contracts": [],
+  "truthFlags": [
+    "version",
+    "health|status",
+    "error|errorHandler|HRESULT"
+  ],
+  "admission": {
+    "four-planes-nameable": "found",
+    "degrades-honestly": "found",
+    "contracts-not-internals": "absent",
+    "respects-operator-policy": "found",
+    "standalone-before-connected": "found",
+    "pipeline-discoverable": "found"
+  },
+  "classSuggestion": "engine? (no contract seam detected)",
+  "verdict": "promote-candidate",
+  "reasons": [
+    "5/6 admission criteria found",
+    "degradation evidence present",
+    "class hint: engine? (no contract seam detected)"
+  ],
+  "confidence": "auto-scan inference — adapter or operator review required before registry"
+}

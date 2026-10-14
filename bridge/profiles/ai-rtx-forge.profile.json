@@ -1,0 +1,87 @@
+{
+  "project": "ai-rtx-forge",
+  "sourceDir": "CascadeProjects",
+  "path": "C:\\Users\\htsou\\CascadeProjects\\ai-rtx-forge",
+  "scannedAt": "2026-10-14T18:46:07.997Z",
+  "census": {
+    "files": 3,
+    "codeFiles": 2,
+    "filesRead": 3,
+    "exts": {
+      ".py": 2,
+      ".md": 1
+    }
+  },
+  "package": null,
+  "surfaces": [
+    "python"
+  ],
+  "pipeline": {
+    "input": [
+      "readFile|createReadStream|File\\.Read|ifstr",
+      "WebSocket|ws:\\/\\/|HttpClient|TcpClient|Udp"
+    ],
+    "transform": [
+      "onnxruntime|tensorflow|tesseract|ollama|op",
+      "\\.map\\(|\\.filter\\(|\\.reduce\\(|foreach|std:",
+      "glsl|shader|hlsl|cuda|opencl|d3d11|directx"
+    ],
+    "output": [
+      "writeFile|createWriteStream|File\\.Write|of",
+      "document\\.|getElementById|canvas|getContex"
+    ]
+  },
+  "planes": {
+    "p0_sovereignCore": {
+      "evidence": [
+        "2 code files",
+        "surfaces: python",
+        "structured core types"
+      ],
+      "present": false
+    },
+    "p1_integrationSurface": {
+      "evidence": [],
+      "present": false
+    },
+    "p2_operatorPolicy": {
+      "evidence": [
+        "\\.env|config\\.(json|yaml|yml|toml|ini)",
+        "settings\\.|Settings\\.|appsettings"
+      ],
+      "present": true
+    },
+    "p3_hybridExecution": {
+      "evidence": [
+        "gpu/shaders"
+      ],
+      "present": true
+    }
+  },
+  "degradationEvidence": [
+    "fallback",
+    "offline",
+    "timeout"
+  ],
+  "contracts": [],
+  "truthFlags": [
+    "version",
+    "health|status",
+    "error|errorHandler|HRESULT"
+  ],
+  "admission": {
+    "four-planes-nameable": "partial",
+    "degrades-honestly": "found",
+    "contracts-not-internals": "absent",
+    "respects-operator-policy": "found",
+    "standalone-before-connected": "partial",
+    "pipeline-discoverable": "found"
+  },
+  "classSuggestion": "module",
+  "verdict": "reference",
+  "reasons": [
+    "3 found / 2 partial / 1 absent on admission test",
+    "real pipeline but doctrine gaps — useful fragments, not a product yet"
+  ],
+  "confidence": "auto-scan inference — adapter or operator review required before registry"
+}

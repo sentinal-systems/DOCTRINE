@@ -1,0 +1,86 @@
+{
+  "project": "homelab flightsim vr",
+  "sourceDir": "Home Projects",
+  "path": "D:\\Home Projects\\homelab flightsim vr",
+  "scannedAt": "2026-10-14T18:46:38.163Z",
+  "census": {
+    "files": 400,
+    "codeFiles": 2,
+    "filesRead": 3,
+    "exts": {
+      ".md": 1,
+      ".csproj": 2,
+      ".inputactions": 1,
+      ".meta": 22,
+      ".unity": 1,
+      ".asset": 9,
+      ".png": 2,
+      ".wlt": 1,
+      ".cs": 2,
+      ".slnx": 1,
+      "(none)": 357,
+      ".graph": 1
+    }
+  },
+  "package": null,
+  "surfaces": [
+    "native (.NET)"
+  ],
+  "pipeline": {
+    "input": [
+      "readFile|createReadStream|File\\.Read|ifstr"
+    ],
+    "transform": [
+      "\\.map\\(|\\.filter\\(|\\.reduce\\(|foreach|std:"
+    ],
+    "output": [
+      "document\\.|getElementById|canvas|getContex"
+    ]
+  },
+  "planes": {
+    "p0_sovereignCore": {
+      "evidence": [
+        "2 code files",
+        "surfaces: native (.NET)",
+        "structured core types"
+      ],
+      "present": false
+    },
+    "p1_integrationSurface": {
+      "evidence": [
+        "remote calls: https?:\\/\\/(?!localhost|127\\.)"
+      ],
+      "present": true
+    },
+    "p2_operatorPolicy": {
+      "evidence": [],
+      "present": false
+    },
+    "p3_hybridExecution": {
+      "evidence": [
+        "local compute + remote input"
+      ],
+      "present": true
+    }
+  },
+  "degradationEvidence": [],
+  "contracts": [
+    "interface \\w+|type \\w+ =|public (class|int"
+  ],
+  "truthFlags": [],
+  "admission": {
+    "four-planes-nameable": "partial",
+    "degrades-honestly": "absent",
+    "contracts-not-internals": "partial",
+    "respects-operator-policy": "absent",
+    "standalone-before-connected": "partial",
+    "pipeline-discoverable": "found"
+  },
+  "classSuggestion": "module",
+  "verdict": "reference",
+  "reasons": [
+    "1 found / 3 partial / 2 absent on admission test",
+    "real pipeline but doctrine gaps — useful fragments, not a product yet"
+  ],
+  "confidence": "auto-scan inference — adapter or operator review required before registry"
+}

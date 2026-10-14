@@ -1,0 +1,77 @@
+{
+  "project": "vegas-sphere-experience",
+  "sourceDir": "CascadeProjects",
+  "path": "C:\\Users\\htsou\\CascadeProjects\\vegas-sphere-experience",
+  "scannedAt": "2026-10-14T18:46:20.644Z",
+  "census": {
+    "files": 3,
+    "codeFiles": 2,
+    "filesRead": 4,
+    "exts": {
+      ".html": 1,
+      ".js": 1,
+      ".css": 1
+    }
+  },
+  "package": null,
+  "surfaces": [
+    "web UI",
+    "cli"
+  ],
+  "pipeline": {
+    "input": null,
+    "transform": [
+      "glsl|shader|hlsl|cuda|opencl|d3d11|directx"
+    ],
+    "output": [
+      "document\\.|getElementById|canvas|getContex"
+    ]
+  },
+  "planes": {
+    "p0_sovereignCore": {
+      "evidence": [
+        "2 code files",
+        "surfaces: web UI, cli",
+        "structured core types"
+      ],
+      "present": false
+    },
+    "p1_integrationSurface": {
+      "evidence": [
+        "remote calls: https?:\\/\\/(?!localhost|127\\.)"
+      ],
+      "present": true
+    },
+    "p2_operatorPolicy": {
+      "evidence": [],
+      "present": false
+    },
+    "p3_hybridExecution": {
+      "evidence": [
+        "gpu/shaders"
+      ],
+      "present": true
+    }
+  },
+  "degradationEvidence": [
+    "catch\\s*\\(|try\\s*\\{|FAILED\\(",
+    "timeout"
+  ],
+  "contracts": [],
+  "truthFlags": [],
+  "admission": {
+    "four-planes-nameable": "partial",
+    "degrades-honestly": "found",
+    "contracts-not-internals": "absent",
+    "respects-operator-policy": "absent",
+    "standalone-before-connected": "partial",
+    "pipeline-discoverable": "absent"
+  },
+  "classSuggestion": "unclear — review",
+  "verdict": "dormant",
+  "reasons": [
+    "no discoverable input→transform→output",
+    "too little code to carry a pipeline"
+  ],
+  "confidence": "auto-scan inference — adapter or operator review required before registry"
+}

@@ -1,0 +1,87 @@
+{
+  "project": "FileConverter",
+  "sourceDir": "Home Projects",
+  "path": "D:\\Home Projects\\FileConverter",
+  "scannedAt": "2026-10-14T18:46:38.027Z",
+  "census": {
+    "files": 27,
+    "codeFiles": 19,
+    "filesRead": 21,
+    "exts": {
+      ".toml": 1,
+      ".md": 1,
+      ".sh": 1,
+      ".ps1": 1,
+      ".py": 17,
+      ".txt": 5,
+      "(none)": 1
+    }
+  },
+  "package": null,
+  "surfaces": [
+    "python"
+  ],
+  "pipeline": {
+    "input": [
+      "readFile|createReadStream|File\\.Read|ifstr"
+    ],
+    "transform": [
+      "\\.map\\(|\\.filter\\(|\\.reduce\\(|foreach|std:",
+      "score|scor|inference|infer|predict|analy[s"
+    ],
+    "output": [
+      "writeFile|createWriteStream|File\\.Write|of",
+      "document\\.|getElementById|canvas|getContex"
+    ]
+  },
+  "planes": {
+    "p0_sovereignCore": {
+      "evidence": [
+        "19 code files",
+        "surfaces: python",
+        "structured core types"
+      ],
+      "present": true
+    },
+    "p1_integrationSurface": {
+      "evidence": [
+        "remote calls: https?:\\/\\/(?!localhost|127\\.)"
+      ],
+      "present": true
+    },
+    "p2_operatorPolicy": {
+      "evidence": [],
+      "present": false
+    },
+    "p3_hybridExecution": {
+      "evidence": [
+        "local compute + remote input"
+      ],
+      "present": true
+    }
+  },
+  "degradationEvidence": [
+    "fallback"
+  ],
+  "contracts": [],
+  "truthFlags": [
+    "version",
+    "health|status",
+    "error|errorHandler|HRESULT"
+  ],
+  "admission": {
+    "four-planes-nameable": "found",
+    "degrades-honestly": "partial",
+    "contracts-not-internals": "absent",
+    "respects-operator-policy": "absent",
+    "standalone-before-connected": "found",
+    "pipeline-discoverable": "found"
+  },
+  "classSuggestion": "engine? (no contract seam detected)",
+  "verdict": "reference",
+  "reasons": [
+    "3 found / 1 partial / 2 absent on admission test",
+    "real pipeline but doctrine gaps — useful fragments, not a product yet"
+  ],
+  "confidence": "auto-scan inference — adapter or operator review required before registry"
+}

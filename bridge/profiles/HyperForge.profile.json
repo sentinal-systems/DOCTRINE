@@ -1,0 +1,139 @@
+{
+  "project": "HyperForge",
+  "sourceDir": "CascadeProjects",
+  "path": "C:\\Users\\htsou\\CascadeProjects\\HyperForge",
+  "scannedAt": "2026-10-14T18:46:11.801Z",
+  "census": {
+    "files": 400,
+    "codeFiles": 188,
+    "filesRead": 120,
+    "exts": {
+      ".md": 18,
+      ".bin": 1,
+      ".gltf": 1,
+      ".png": 20,
+      ".txt": 8,
+      ".json": 5,
+      ".cpp": 78,
+      ".h": 80,
+      ".hlsl": 28,
+      ".log": 4,
+      ".js": 5,
+      ".html": 2,
+      ".mjs": 1,
+      ".f32": 75,
+      ".ts": 8,
+      ".mm": 6,
+      ".sh": 1,
+      ".frag": 1,
+      ".vert": 1,
+      ".vcxproj": 11,
+      ".filters": 10,
+      ".gradle": 3,
+      ".xml": 1,
+      ".kt": 1,
+      ".pbxproj": 2,
+      ".plist": 2,
+      ".storyboard": 2,
+      "(none)": 9,
+      ".bat": 13,
+      ".emscripten": 3
+    }
+  },
+  "package": null,
+  "surfaces": [
+    "desktop (electron)",
+    "web UI",
+    "native (C/C++)"
+  ],
+  "pipeline": {
+    "input": [
+      "https?\\.get|https?\\.request",
+      "readFile|createReadStream|File\\.Read|ifstr",
+      "serialport|SerialPort|waveIn|Wasapi|WASAPI"
+    ],
+    "transform": [
+      "worker_threads|new Worker\\(|std::thread|Ta",
+      "onnxruntime|tensorflow|tesseract|ollama|op",
+      "\\.map\\(|\\.filter\\(|\\.reduce\\(|foreach|std:",
+      "score|scor|inference|infer|predict|analy[s",
+      "wgsl|webgpu|getContext\\(['\"]webgl",
+      "glsl|shader|hlsl|cuda|opencl|d3d11|directx",
+      "\\.wasm|\\.wat|WebAssembly"
+    ],
+    "output": [
+      "writeFile|createWriteStream|File\\.Write|of",
+      "console\\.(log|table)|std::cout|printf|Cons",
+      "document\\.|getElementById|canvas|getContex",
+      "emit\\(|broadcast|Send\\(|SendAsync"
+    ]
+  },
+  "planes": {
+    "p0_sovereignCore": {
+      "evidence": [
+        "188 code files",
+        "surfaces: desktop (electron), web UI, native (C/C++)",
+        "structured core types"
+      ],
+      "present": true
+    },
+    "p1_integrationSurface": {
+      "evidence": [
+        "remote calls: https?:\\/\\/(?!localhost|127\\.), api\\.|endpoint|\\/v\\d\\/"
+      ],
+      "present": true
+    },
+    "p2_operatorPolicy": {
+      "evidence": [
+        "\\.env|config\\.(json|yaml|yml|toml|ini)",
+        "--config|getenv|process\\.env|GetEnvironmen"
+      ],
+      "present": true
+    },
+    "p3_hybridExecution": {
+      "evidence": [
+        "wasm",
+        "gpu/shaders",
+        "workers",
+        "local compute + remote input"
+      ],
+      "present": true
+    }
+  },
+  "degradationEvidence": [
+    "fallback",
+    "unavailable",
+    "offline",
+    "stale",
+    "retry|backoff",
+    "catch\\s*\\(|try\\s*\\{|FAILED\\(",
+    "timeout",
+    "unreachable|return nullptr|return false"
+  ],
+  "contracts": [
+    "interface \\w+|type \\w+ =|public (class|int",
+    "ipcMain\\.handle|app\\.(get|post|put|delete)"
+  ],
+  "truthFlags": [
+    "version",
+    "health|status",
+    "uptime",
+    "error|errorHandler|HRESULT"
+  ],
+  "admission": {
+    "four-planes-nameable": "found",
+    "degrades-honestly": "found",
+    "contracts-not-internals": "found",
+    "respects-operator-policy": "found",
+    "standalone-before-connected": "found",
+    "pipeline-discoverable": "found"
+  },
+  "classSuggestion": "engine",
+  "verdict": "promote-candidate",
+  "reasons": [
+    "6/6 admission criteria found",
+    "degradation evidence present",
+    "class hint: engine"
+  ],
+  "confidence": "auto-scan inference — adapter or operator review required before registry"
+}

@@ -1,0 +1,85 @@
+{
+  "project": "WingControlBridge",
+  "sourceDir": "CascadeProjects",
+  "path": "C:\\Users\\htsou\\CascadeProjects\\WingControlBridge",
+  "scannedAt": "2026-10-14T18:46:25.434Z",
+  "census": {
+    "files": 23,
+    "codeFiles": 11,
+    "filesRead": 13,
+    "exts": {
+      ".md": 2,
+      ".h": 8,
+      "(none)": 1,
+      ".c": 9,
+      ".sh": 1,
+      ".py": 2
+    }
+  },
+  "package": null,
+  "surfaces": [
+    "cli",
+    "python"
+  ],
+  "pipeline": {
+    "input": [
+      "process\\.argv|commander|yargs|argparse|arg"
+    ],
+    "transform": null,
+    "output": [
+      "console\\.(log|table)|std::cout|printf|Cons",
+      "emit\\(|broadcast|Send\\(|SendAsync"
+    ]
+  },
+  "planes": {
+    "p0_sovereignCore": {
+      "evidence": [
+        "11 code files",
+        "surfaces: cli, python",
+        "structured core types"
+      ],
+      "present": true
+    },
+    "p1_integrationSurface": {
+      "evidence": [],
+      "present": false
+    },
+    "p2_operatorPolicy": {
+      "evidence": [],
+      "present": false
+    },
+    "p3_hybridExecution": {
+      "evidence": [],
+      "present": false
+    }
+  },
+  "degradationEvidence": [
+    "fallback",
+    "degrad",
+    "retry|backoff",
+    "timeout",
+    "unreachable|return nullptr|return false"
+  ],
+  "contracts": [
+    "interface \\w+|type \\w+ =|public (class|int"
+  ],
+  "truthFlags": [
+    "version",
+    "health|status",
+    "error|errorHandler|HRESULT"
+  ],
+  "admission": {
+    "four-planes-nameable": "partial",
+    "degrades-honestly": "found",
+    "contracts-not-internals": "partial",
+    "respects-operator-policy": "absent",
+    "standalone-before-connected": "found",
+    "pipeline-discoverable": "absent"
+  },
+  "classSuggestion": "unclear — review",
+  "verdict": "dormant",
+  "reasons": [
+    "no discoverable input→transform→output"
+  ],
+  "confidence": "auto-scan inference — adapter or operator review required before registry"
+}

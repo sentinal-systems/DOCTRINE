@@ -1,0 +1,85 @@
+{
+  "project": "NuclearsTrainerV1(NotforDx11User)",
+  "sourceDir": "Home Projects",
+  "path": "D:\\Home Projects\\NuclearsTrainerV1(NotforDx11User)",
+  "scannedAt": "2026-10-14T18:46:40.267Z",
+  "census": {
+    "files": 9,
+    "codeFiles": 5,
+    "filesRead": 9,
+    "exts": {
+      ".bat": 1,
+      ".cs": 4,
+      ".md": 3,
+      ".csproj": 1
+    }
+  },
+  "package": null,
+  "surfaces": [
+    "native (.NET)"
+  ],
+  "pipeline": {
+    "input": [
+      "readFile|createReadStream|File\\.Read|ifstr",
+      "process\\.stdin|std::cin|Console\\.Read"
+    ],
+    "transform": [
+      "\\.map\\(|\\.filter\\(|\\.reduce\\(|foreach|std:"
+    ],
+    "output": [
+      "writeFile|createWriteStream|File\\.Write|of",
+      "console\\.(log|table)|std::cout|printf|Cons"
+    ]
+  },
+  "planes": {
+    "p0_sovereignCore": {
+      "evidence": [
+        "5 code files",
+        "surfaces: native (.NET)",
+        "structured core types"
+      ],
+      "present": true
+    },
+    "p1_integrationSurface": {
+      "evidence": [],
+      "present": false
+    },
+    "p2_operatorPolicy": {
+      "evidence": [],
+      "present": false
+    },
+    "p3_hybridExecution": {
+      "evidence": [],
+      "present": false
+    }
+  },
+  "degradationEvidence": [
+    "stale",
+    "catch\\s*\\(|try\\s*\\{|FAILED\\(",
+    "unreachable|return nullptr|return false"
+  ],
+  "contracts": [
+    "interface \\w+|type \\w+ =|public (class|int",
+    "ipcMain\\.handle|app\\.(get|post|put|delete)"
+  ],
+  "truthFlags": [
+    "health|status",
+    "error|errorHandler|HRESULT"
+  ],
+  "admission": {
+    "four-planes-nameable": "partial",
+    "degrades-honestly": "found",
+    "contracts-not-internals": "found",
+    "respects-operator-policy": "absent",
+    "standalone-before-connected": "found",
+    "pipeline-discoverable": "found"
+  },
+  "classSuggestion": "unclear — review",
+  "verdict": "promote-candidate",
+  "reasons": [
+    "4/6 admission criteria found",
+    "degradation evidence present",
+    "class hint: unclear — review"
+  ],
+  "confidence": "auto-scan inference — adapter or operator review required before registry"
+}

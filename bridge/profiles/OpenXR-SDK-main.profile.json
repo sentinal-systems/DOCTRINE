@@ -1,0 +1,130 @@
+{
+  "project": "OpenXR-SDK-main",
+  "sourceDir": "Home Projects",
+  "path": "D:\\Home Projects\\OpenXR-SDK-main",
+  "scannedAt": "2026-10-14T18:46:40.642Z",
+  "census": {
+    "files": 380,
+    "codeFiles": 101,
+    "filesRead": 120,
+    "exts": {
+      ".md": 11,
+      ".txt": 33,
+      ".adoc": 1,
+      ".license": 5,
+      ".h": 40,
+      "(none)": 5,
+      ".xml": 2,
+      ".in": 15,
+      ".cmake": 16,
+      ".cpp": 31,
+      ".hpp": 14,
+      ".gradle": 2,
+      ".vcxproj": 2,
+      ".filters": 2,
+      ".py": 13,
+      ".yml": 1,
+      ".bazel": 1,
+      ".makefile": 1,
+      ".json": 111,
+      ".html": 2,
+      ".dox": 2,
+      ".pl": 1,
+      ".sh": 1,
+      ".inl": 1,
+      ".dict": 1,
+      ".expected": 59,
+      ".rc": 1,
+      ".def": 1,
+      ".expsym": 1,
+      ".map": 1,
+      ".pom": 1,
+      ".c": 2
+    }
+  },
+  "package": null,
+  "surfaces": [
+    "api/server",
+    "native (C/C++)",
+    "python"
+  ],
+  "pipeline": {
+    "input": [
+      "readFile|createReadStream|File\\.Read|ifstr",
+      "process\\.argv|commander|yargs|argparse|arg",
+      "process\\.stdin|std::cin|Console\\.Read"
+    ],
+    "transform": [
+      "\\.map\\(|\\.filter\\(|\\.reduce\\(|foreach|std:",
+      "score|scor|inference|infer|predict|analy[s",
+      "glsl|shader|hlsl|cuda|opencl|d3d11|directx"
+    ],
+    "output": [
+      "writeFile|createWriteStream|File\\.Write|of",
+      "console\\.(log|table)|std::cout|printf|Cons",
+      "document\\.|getElementById|canvas|getContex"
+    ]
+  },
+  "planes": {
+    "p0_sovereignCore": {
+      "evidence": [
+        "101 code files",
+        "surfaces: api/server, native (C/C++), python",
+        "structured core types"
+      ],
+      "present": true
+    },
+    "p1_integrationSurface": {
+      "evidence": [
+        "remote calls: https?:\\/\\/(?!localhost|127\\.)"
+      ],
+      "present": true
+    },
+    "p2_operatorPolicy": {
+      "evidence": [
+        "\\.env|config\\.(json|yaml|yml|toml|ini)",
+        "--config|getenv|process\\.env|GetEnvironmen"
+      ],
+      "present": true
+    },
+    "p3_hybridExecution": {
+      "evidence": [
+        "gpu/shaders",
+        "local compute + remote input"
+      ],
+      "present": true
+    }
+  },
+  "degradationEvidence": [
+    "fallback",
+    "unavailable",
+    "catch\\s*\\(|try\\s*\\{|FAILED\\(",
+    "timeout",
+    "unreachable|return nullptr|return false"
+  ],
+  "contracts": [
+    "interface \\w+|type \\w+ =|public (class|int",
+    "ipcMain\\.handle|app\\.(get|post|put|delete)"
+  ],
+  "truthFlags": [
+    "version",
+    "health|status",
+    "error|errorHandler|HRESULT"
+  ],
+  "admission": {
+    "four-planes-nameable": "found",
+    "degrades-honestly": "found",
+    "contracts-not-internals": "found",
+    "respects-operator-policy": "found",
+    "standalone-before-connected": "found",
+    "pipeline-discoverable": "found"
+  },
+  "classSuggestion": "engine",
+  "verdict": "promote-candidate",
+  "reasons": [
+    "6/6 admission criteria found",
+    "degradation evidence present",
+    "class hint: engine"
+  ],
+  "confidence": "auto-scan inference — adapter or operator review required before registry"
+}

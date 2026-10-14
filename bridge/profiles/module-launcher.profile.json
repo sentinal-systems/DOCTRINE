@@ -1,0 +1,80 @@
+{
+  "project": "module-launcher",
+  "sourceDir": "CascadeProjects",
+  "path": "C:\\Users\\htsou\\CascadeProjects\\module-launcher",
+  "scannedAt": "2026-10-14T18:46:12.690Z",
+  "census": {
+    "files": 8,
+    "codeFiles": 5,
+    "filesRead": 9,
+    "exts": {
+      ".html": 1,
+      ".cjs": 1,
+      ".js": 3,
+      ".json": 2,
+      ".css": 1
+    }
+  },
+  "package": {
+    "name": "module-launcher",
+    "version": "1.0.0",
+    "deps": 1
+  },
+  "surfaces": [
+    "desktop (electron)",
+    "web UI"
+  ],
+  "pipeline": {
+    "input": null,
+    "transform": null,
+    "output": [
+      "document\\.|getElementById|canvas|getContex"
+    ]
+  },
+  "planes": {
+    "p0_sovereignCore": {
+      "evidence": [
+        "5 code files",
+        "surfaces: desktop (electron), web UI"
+      ],
+      "present": true
+    },
+    "p1_integrationSurface": {
+      "evidence": [
+        "remote calls: https?:\\/\\/(?!localhost|127\\.)",
+        "deps: electron"
+      ],
+      "present": true
+    },
+    "p2_operatorPolicy": {
+      "evidence": [
+        "\\.env|config\\.(json|yaml|yml|toml|ini)",
+        "--config|getenv|process\\.env|GetEnvironmen"
+      ],
+      "present": true
+    },
+    "p3_hybridExecution": {
+      "evidence": [],
+      "present": false
+    }
+  },
+  "degradationEvidence": [],
+  "contracts": [],
+  "truthFlags": [
+    "version"
+  ],
+  "admission": {
+    "four-planes-nameable": "found",
+    "degrades-honestly": "absent",
+    "contracts-not-internals": "absent",
+    "respects-operator-policy": "found",
+    "standalone-before-connected": "found",
+    "pipeline-discoverable": "absent"
+  },
+  "classSuggestion": "unclear — review",
+  "verdict": "dormant",
+  "reasons": [
+    "no discoverable input→transform→output"
+  ],
+  "confidence": "auto-scan inference — adapter or operator review required before registry"
+}

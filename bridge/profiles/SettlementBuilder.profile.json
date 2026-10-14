@@ -1,0 +1,69 @@
+{
+  "project": "SettlementBuilder",
+  "sourceDir": "CascadeProjects",
+  "path": "C:\\Users\\htsou\\CascadeProjects\\SettlementBuilder",
+  "scannedAt": "2026-10-14T18:46:17.537Z",
+  "census": {
+    "files": 9,
+    "codeFiles": 4,
+    "filesRead": 4,
+    "exts": {
+      ".svg": 1,
+      ".godot": 1,
+      ".tres": 1,
+      ".tscn": 2,
+      ".gd": 4
+    }
+  },
+  "package": null,
+  "surfaces": [],
+  "pipeline": {
+    "input": [
+      "readFile|createReadStream|File\\.Read|ifstr"
+    ],
+    "transform": null,
+    "output": null
+  },
+  "planes": {
+    "p0_sovereignCore": {
+      "evidence": [
+        "4 code files"
+      ],
+      "present": true
+    },
+    "p1_integrationSurface": {
+      "evidence": [],
+      "present": false
+    },
+    "p2_operatorPolicy": {
+      "evidence": [],
+      "present": false
+    },
+    "p3_hybridExecution": {
+      "evidence": [],
+      "present": false
+    }
+  },
+  "degradationEvidence": [
+    "timeout",
+    "unreachable|return nullptr|return false"
+  ],
+  "contracts": [],
+  "truthFlags": [
+    "health|status"
+  ],
+  "admission": {
+    "four-planes-nameable": "partial",
+    "degrades-honestly": "found",
+    "contracts-not-internals": "absent",
+    "respects-operator-policy": "absent",
+    "standalone-before-connected": "found",
+    "pipeline-discoverable": "absent"
+  },
+  "classSuggestion": "unclear — review",
+  "verdict": "dormant",
+  "reasons": [
+    "no discoverable input→transform→output"
+  ],
+  "confidence": "auto-scan inference — adapter or operator review required before registry"
+}

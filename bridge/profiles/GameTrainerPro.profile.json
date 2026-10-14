@@ -1,0 +1,134 @@
+{
+  "project": "GameTrainerPro",
+  "sourceDir": "CascadeProjects",
+  "path": "C:\\Users\\htsou\\CascadeProjects\\GameTrainerPro",
+  "scannedAt": "2026-10-14T18:46:10.276Z",
+  "census": {
+    "files": 400,
+    "codeFiles": 211,
+    "filesRead": 120,
+    "exts": {
+      ".bat": 26,
+      ".sh": 2,
+      ".txt": 12,
+      ".h": 76,
+      ".cpp": 94,
+      ".md": 33,
+      ".json": 1,
+      ".sln": 5,
+      ".vcxproj": 29,
+      ".filters": 29,
+      ".slnx": 1,
+      ".inl": 1,
+      "(none)": 19,
+      ".cs": 13,
+      ".csproj": 1,
+      ".png": 1,
+      ".spritefont": 1,
+      ".fx": 12,
+      ".fxh": 6,
+      ".cmd": 1,
+      ".hlsl": 3,
+      ".hlsli": 1,
+      ".inc": 1,
+      ".ico": 1,
+      ".manifest": 1,
+      ".rc": 1,
+      ".mm": 7,
+      ".frag": 2,
+      ".vert": 2,
+      ".gradle": 3,
+      ".xml": 1,
+      ".kt": 1,
+      ".toml": 1,
+      ".pbxproj": 2,
+      ".plist": 2,
+      ".storyboard": 2,
+      ".emscripten": 6
+    }
+  },
+  "package": null,
+  "surfaces": [
+    "api/server",
+    "native (.NET)",
+    "native (C/C++)"
+  ],
+  "pipeline": {
+    "input": [
+      "readFile|createReadStream|File\\.Read|ifstr",
+      "serialport|SerialPort|waveIn|Wasapi|WASAPI"
+    ],
+    "transform": [
+      "\\.map\\(|\\.filter\\(|\\.reduce\\(|foreach|std:",
+      "score|scor|inference|infer|predict|analy[s",
+      "wgsl|webgpu|getContext\\(['\"]webgl",
+      "glsl|shader|hlsl|cuda|opencl|d3d11|directx"
+    ],
+    "output": [
+      "console\\.(log|table)|std::cout|printf|Cons",
+      "document\\.|getElementById|canvas|getContex"
+    ]
+  },
+  "planes": {
+    "p0_sovereignCore": {
+      "evidence": [
+        "211 code files",
+        "surfaces: api/server, native (.NET), native (C/C++)",
+        "structured core types"
+      ],
+      "present": true
+    },
+    "p1_integrationSurface": {
+      "evidence": [
+        "remote calls: https?:\\/\\/(?!localhost|127\\.), api\\.|endpoint|\\/v\\d\\/"
+      ],
+      "present": true
+    },
+    "p2_operatorPolicy": {
+      "evidence": [
+        "settings\\.|Settings\\.|appsettings",
+        "--config|getenv|process\\.env|GetEnvironmen"
+      ],
+      "present": true
+    },
+    "p3_hybridExecution": {
+      "evidence": [
+        "gpu/shaders",
+        "local compute + remote input"
+      ],
+      "present": true
+    }
+  },
+  "degradationEvidence": [
+    "fallback",
+    "retry|backoff",
+    "catch\\s*\\(|try\\s*\\{|FAILED\\(",
+    "timeout",
+    "unreachable|return nullptr|return false"
+  ],
+  "contracts": [
+    "interface \\w+|type \\w+ =|public (class|int",
+    "ipcMain\\.handle|app\\.(get|post|put|delete)"
+  ],
+  "truthFlags": [
+    "version",
+    "health|status",
+    "error|errorHandler|HRESULT"
+  ],
+  "admission": {
+    "four-planes-nameable": "found",
+    "degrades-honestly": "found",
+    "contracts-not-internals": "found",
+    "respects-operator-policy": "found",
+    "standalone-before-connected": "found",
+    "pipeline-discoverable": "found"
+  },
+  "classSuggestion": "engine",
+  "verdict": "promote-candidate",
+  "reasons": [
+    "6/6 admission criteria found",
+    "degradation evidence present",
+    "class hint: engine"
+  ],
+  "confidence": "auto-scan inference — adapter or operator review required before registry"
+}

@@ -1,0 +1,152 @@
+{
+  "project": "windsurf-project",
+  "sourceDir": "CascadeProjects",
+  "path": "C:\\Users\\htsou\\CascadeProjects\\windsurf-project",
+  "scannedAt": "2026-10-14T18:46:24.564Z",
+  "census": {
+    "files": 400,
+    "codeFiles": 180,
+    "filesRead": 120,
+    "exts": {
+      ".cpp": 23,
+      ".vcxproj": 7,
+      ".user": 4,
+      ".h": 124,
+      ".xaml": 5,
+      ".log": 4,
+      ".txt": 15,
+      ".props": 1,
+      ".sln": 1,
+      ".slnx": 2,
+      ".binlog": 1,
+      ".manifest": 1,
+      ".cs": 17,
+      ".png": 47,
+      ".appxmanifest": 1,
+      ".json": 4,
+      ".pubxml": 3,
+      ".csproj": 4,
+      ".ps1": 2,
+      ".dll": 1,
+      ".xml": 7,
+      ".obj": 8,
+      ".lastbuildstate": 2,
+      ".tlog": 11,
+      "(none)": 4,
+      ".idb": 1,
+      ".pdb": 2,
+      ".recipe": 1,
+      ".iobj": 1,
+      ".ipdb": 1,
+      ".hlsl": 2,
+      ".bat": 6,
+      ".md": 11,
+      ".exe": 1,
+      ".py": 1,
+      ".css": 3,
+      ".html": 5,
+      ".ico": 1,
+      ".js": 2,
+      ".wav": 7,
+      ".zip": 2,
+      ".caf": 10,
+      ".mp3": 10,
+      ".jpg": 2,
+      ".path": 2,
+      ".ogg": 28,
+      ".keystore": 1,
+      ".gradle": 1
+    }
+  },
+  "package": null,
+  "surfaces": [
+    "web UI",
+    "api/server",
+    "native (.NET)",
+    "native (C/C++)",
+    "cli",
+    "python"
+  ],
+  "pipeline": {
+    "input": [
+      "readFile|createReadStream|File\\.Read|ifstr",
+      "process\\.argv|commander|yargs|argparse|arg",
+      "serialport|SerialPort|waveIn|Wasapi|WASAPI"
+    ],
+    "transform": [
+      "\\.map\\(|\\.filter\\(|\\.reduce\\(|foreach|std:",
+      "score|scor|inference|infer|predict|analy[s",
+      "glsl|shader|hlsl|cuda|opencl|d3d11|directx"
+    ],
+    "output": [
+      "console\\.(log|table)|std::cout|printf|Cons",
+      "document\\.|getElementById|canvas|getContex",
+      "emit\\(|broadcast|Send\\(|SendAsync"
+    ]
+  },
+  "planes": {
+    "p0_sovereignCore": {
+      "evidence": [
+        "180 code files",
+        "surfaces: web UI, api/server, native (.NET), native (C/C++), cli, python",
+        "structured core types"
+      ],
+      "present": true
+    },
+    "p1_integrationSurface": {
+      "evidence": [
+        "remote calls: https?:\\/\\/(?!localhost|127\\.), api\\.|endpoint|\\/v\\d\\/"
+      ],
+      "present": true
+    },
+    "p2_operatorPolicy": {
+      "evidence": [
+        "\\.env|config\\.(json|yaml|yml|toml|ini)",
+        "settings\\.|Settings\\.|appsettings",
+        "--config|getenv|process\\.env|GetEnvironmen"
+      ],
+      "present": true
+    },
+    "p3_hybridExecution": {
+      "evidence": [
+        "gpu/shaders",
+        "local compute + remote input"
+      ],
+      "present": true
+    }
+  },
+  "degradationEvidence": [
+    "fallback",
+    "offline",
+    "retry|backoff",
+    "catch\\s*\\(|try\\s*\\{|FAILED\\(",
+    "timeout",
+    "unreachable|return nullptr|return false"
+  ],
+  "contracts": [
+    "module\\.exports|export (default|function|c",
+    "interface \\w+|type \\w+ =|public (class|int",
+    "ipcMain\\.handle|app\\.(get|post|put|delete)"
+  ],
+  "truthFlags": [
+    "version",
+    "health|status",
+    "error|errorHandler|HRESULT"
+  ],
+  "admission": {
+    "four-planes-nameable": "found",
+    "degrades-honestly": "found",
+    "contracts-not-internals": "found",
+    "respects-operator-policy": "found",
+    "standalone-before-connected": "found",
+    "pipeline-discoverable": "found"
+  },
+  "classSuggestion": "engine",
+  "verdict": "promote-candidate",
+  "reasons": [
+    "6/6 admission criteria found",
+    "degradation evidence present",
+    "class hint: engine"
+  ],
+  "confidence": "auto-scan inference — adapter or operator review required before registry"
+}

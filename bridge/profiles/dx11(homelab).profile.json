@@ -1,0 +1,93 @@
+{
+  "project": "dx11(homelab)",
+  "sourceDir": "Home Projects",
+  "path": "D:\\Home Projects\\dx11(homelab)",
+  "scannedAt": "2026-10-14T18:46:37.873Z",
+  "census": {
+    "files": 400,
+    "codeFiles": 4,
+    "filesRead": 7,
+    "exts": {
+      ".vcxproj": 20,
+      ".filters": 12,
+      ".txt": 22,
+      ".rule": 3,
+      ".cmake": 16,
+      ".bin": 3,
+      ".cpp": 4,
+      ".exe": 6,
+      ".obj": 106,
+      ".recipe": 19,
+      ".tlog": 111,
+      ".lastbuildstate": 18,
+      ".check_cache": 5,
+      ".yaml": 5,
+      ".stamp": 3,
+      ".depend": 5,
+      ".list": 3,
+      ".json": 3,
+      ".ini": 2,
+      ".dll": 7,
+      ".log": 4,
+      ".ilk": 3,
+      ".slnx": 5,
+      ".exp": 2,
+      ".lib": 2,
+      ".def": 3,
+      ".csv": 3,
+      "(none)": 2,
+      ".pdb": 3
+    }
+  },
+  "package": null,
+  "surfaces": [
+    "native (C/C++)"
+  ],
+  "pipeline": {
+    "input": null,
+    "transform": null,
+    "output": null
+  },
+  "planes": {
+    "p0_sovereignCore": {
+      "evidence": [
+        "4 code files",
+        "surfaces: native (C/C++)",
+        "structured core types"
+      ],
+      "present": true
+    },
+    "p1_integrationSurface": {
+      "evidence": [],
+      "present": false
+    },
+    "p2_operatorPolicy": {
+      "evidence": [],
+      "present": false
+    },
+    "p3_hybridExecution": {
+      "evidence": [],
+      "present": false
+    }
+  },
+  "degradationEvidence": [],
+  "contracts": [],
+  "truthFlags": [
+    "version",
+    "error|errorHandler|HRESULT"
+  ],
+  "admission": {
+    "four-planes-nameable": "partial",
+    "degrades-honestly": "absent",
+    "contracts-not-internals": "absent",
+    "respects-operator-policy": "absent",
+    "standalone-before-connected": "found",
+    "pipeline-discoverable": "absent"
+  },
+  "classSuggestion": "unclear — review",
+  "verdict": "dormant",
+  "reasons": [
+    "no discoverable input→transform→output"
+  ],
+  "confidence": "auto-scan inference — adapter or operator review required before registry"
+}

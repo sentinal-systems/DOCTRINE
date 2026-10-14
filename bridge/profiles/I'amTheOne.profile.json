@@ -1,0 +1,135 @@
+{
+  "project": "I'amTheOne",
+  "sourceDir": "Home Projects",
+  "path": "D:\\Home Projects\\I'amTheOne",
+  "scannedAt": "2026-10-14T18:46:38.789Z",
+  "census": {
+    "files": 400,
+    "codeFiles": 168,
+    "filesRead": 120,
+    "exts": {
+      ".py": 23,
+      ".db": 1,
+      ".md": 6,
+      ".txt": 5,
+      ".png": 2,
+      ".css": 1,
+      ".svg": 1,
+      ".html": 9,
+      ".vcxproj": 10,
+      ".filters": 7,
+      ".rule": 20,
+      ".cmake": 12,
+      ".bin": 11,
+      ".c": 1,
+      ".exe": 2,
+      ".obj": 70,
+      ".recipe": 6,
+      ".tlog": 45,
+      ".lastbuildstate": 7,
+      ".cpp": 52,
+      ".check_cache": 1,
+      ".yaml": 1,
+      ".log": 2,
+      ".stamp": 2,
+      ".depend": 2,
+      ".list": 1,
+      ".json": 6,
+      ".cxx": 1,
+      ".hxx": 4,
+      ".lib": 2,
+      ".pch": 1,
+      "(none)": 1,
+      ".slnx": 1,
+      ".js": 6,
+      ".h": 78
+    }
+  },
+  "package": null,
+  "surfaces": [
+    "api/server",
+    "native (C/C++)",
+    "cli",
+    "python"
+  ],
+  "pipeline": {
+    "input": [
+      "\\bfetch\\s*\\(",
+      "readFile|createReadStream|File\\.Read|ifstr",
+      "process\\.argv|commander|yargs|argparse|arg"
+    ],
+    "transform": [
+      "\\.map\\(|\\.filter\\(|\\.reduce\\(|foreach|std:",
+      "score|scor|inference|infer|predict|analy[s"
+    ],
+    "output": [
+      "writeFile|createWriteStream|File\\.Write|of",
+      "console\\.(log|table)|std::cout|printf|Cons",
+      "document\\.|getElementById|canvas|getContex",
+      "emit\\(|broadcast|Send\\(|SendAsync"
+    ]
+  },
+  "planes": {
+    "p0_sovereignCore": {
+      "evidence": [
+        "168 code files",
+        "surfaces: api/server, native (C/C++), cli, python",
+        "structured core types"
+      ],
+      "present": true
+    },
+    "p1_integrationSurface": {
+      "evidence": [
+        "remote calls: https?:\\/\\/(?!localhost|127\\.), api\\.|endpoint|\\/v\\d\\/"
+      ],
+      "present": true
+    },
+    "p2_operatorPolicy": {
+      "evidence": [
+        "\\.env|config\\.(json|yaml|yml|toml|ini)",
+        "settings\\.|Settings\\.|appsettings"
+      ],
+      "present": true
+    },
+    "p3_hybridExecution": {
+      "evidence": [
+        "local compute + remote input"
+      ],
+      "present": true
+    }
+  },
+  "degradationEvidence": [
+    "fallback",
+    "unavailable",
+    "catch\\s*\\(|try\\s*\\{|FAILED\\(",
+    "timeout",
+    "unreachable|return nullptr|return false"
+  ],
+  "contracts": [
+    "module\\.exports|export (default|function|c",
+    "interface \\w+|type \\w+ =|public (class|int",
+    "openapi|swagger",
+    "ipcMain\\.handle|app\\.(get|post|put|delete)"
+  ],
+  "truthFlags": [
+    "version",
+    "health|status",
+    "error|errorHandler|HRESULT"
+  ],
+  "admission": {
+    "four-planes-nameable": "found",
+    "degrades-honestly": "found",
+    "contracts-not-internals": "found",
+    "respects-operator-policy": "found",
+    "standalone-before-connected": "found",
+    "pipeline-discoverable": "found"
+  },
+  "classSuggestion": "engine",
+  "verdict": "promote-candidate",
+  "reasons": [
+    "6/6 admission criteria found",
+    "degradation evidence present",
+    "class hint: engine"
+  ],
+  "confidence": "auto-scan inference — adapter or operator review required before registry"
+}

@@ -252,6 +252,25 @@ This is the two-gate model generalized: **open where the operator
 chooses openness, sealed where trust must be earned — and never the
 reverse.**
 
+### 7.5 Fair Billing (RULE: FAIR-BILLING)
+
+The customer must be able to predict renewal dates without calculation.
+
+- **Free tiers may use rolling usage windows.** 14-day or 28-day quota
+  resets are acceptable for free-tier operation and evaluation periods.
+- **Paid subscriptions renew on a fixed calendar date.** A customer who
+  subscribes on the 17th is billed on the 17th of each month — April 17,
+  May 17, June 17 — not on a rolling day-count that drifts the renewal
+  earlier across the calendar (17th → 14th → 12th → 9th).
+- **Billing models must not obscure renewal timing.** No cycle drift,
+  no disguised acceleration of charges, no "monthly" that means 28 days.
+- **Trust outranks billing optimisation.** If a billing shortcut would
+  make the customer pay more often than they reasonably expect, the
+  shortcut is wrong — not the customer.
+
+This survives every payment processor — Stripe, Paddle, our own
+implementation: the customer understands when they are billed.
+
 ---
 
 ## 8. Agent Alignment Charter

@@ -151,7 +151,7 @@ onboarded 25 Oct 2026 for productization.
 | Sovereign core | Python service layer — asyncio event bus, JSON config tree, in-memory auth, SQLite persistence — plus ~30 tool windows (monitors, cleaner, assistant, IoT, containers) |
 | Integration surface | WireGuard mesh (real `wg`/`netsh`), TCP/ZMQ memory-region services, ImDisk RAM-disk over SMB/iSCSI, Flask REST (~98 routes), PWA mobile front-end |
 | Operator policy | Admin auto-config, role-based auth service, firewall setup, per-tool privilege escalation where required |
-| Hybrid execution | Local-first, zero cloud dependency; LAN peer negotiation over TCP 30000–31000 — capability advertisement real, compute offload currently simulated |
+| Hybrid execution | Local-first, zero cloud dependency; LAN peer negotiation over TCP 30000–31000 — capability advertisement real, compute offload currently simulated. Verified no phone-home: every operational call is LAN/mesh-scoped; the only WAN touches are user-initiated (installer downloads, connectivity checks) |
 
 **Admission evidence (partial):** monitor suite and dashboards verified
 running with live data (screenshot audit); five-generation accumulation

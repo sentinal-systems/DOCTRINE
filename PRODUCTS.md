@@ -140,6 +140,30 @@ domain: cognitively separate from the workstation by design.
 
 ---
 
+## Homelab Tools — homelab toolkit  ·  *class: Surface*  ·  **status: candidate — admission pending**
+
+**Role:** the private machine-fleet lane — monitoring, management, and
+LAN resource sharing for a Windows homelab. Predates the doctrine;
+onboarded 25 Oct 2026 for productization.
+
+| Plane | Instance |
+|---|---|
+| Sovereign core | Python service layer — asyncio event bus, JSON config tree, in-memory auth, SQLite persistence — plus ~30 tool windows (monitors, cleaner, assistant, IoT, containers) |
+| Integration surface | WireGuard mesh (real `wg`/`netsh`), TCP/ZMQ memory-region services, ImDisk RAM-disk over SMB/iSCSI, Flask REST (~98 routes), PWA mobile front-end |
+| Operator policy | Admin auto-config, role-based auth service, firewall setup, per-tool privilege escalation where required |
+| Hybrid execution | Local-first, zero cloud dependency; LAN peer negotiation over TCP 30000–31000 — capability advertisement real, compute offload currently simulated |
+
+**Admission evidence (partial):** monitor suite and dashboards verified
+running with live data (screenshot audit); five-generation accumulation
+leaves `*_fixed`/`*_working` variant sprawl and two broken entry points
+(`homelab_portal` init-order, `rest_api` double-registration); 8.1 GB of
+runtime dumps committed to LFS. Honest-state doc: `HOMELAB.md` in-repo.
+Admission requires: single working entry point, junk untracked, README
+claims reconciled to code, supervised validation of the network-mutating
+tool class.
+
+---
+
 ## Registry rules
 
 - **New product = new entry here.** Describe its four planes; if you

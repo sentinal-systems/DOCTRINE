@@ -18,7 +18,7 @@
  *   node bridge/brand-guard.mjs --all <root-dir>          (scan every child dir)
  */
 import { readdirSync, readFileSync, existsSync } from 'fs'
-import { join, dirname, basename } from 'path'
+import { join, dirname, basename, resolve } from 'path'
 import { fileURLToPath } from 'url'
 
 const HERE = dirname(fileURLToPath(import.meta.url))
@@ -68,6 +68,7 @@ function isAllowed(rel, line, allow) {
 }
 
 function guard(root) {
+  root = resolve(root)   // relative roots (e.g. '.') would slice rel paths wrong below
   const files = walk(root)
   const allow = loadAllowlist(root)
   const findings = []   // unallowlisted legacy hits — blockers

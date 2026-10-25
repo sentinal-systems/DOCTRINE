@@ -98,7 +98,6 @@
 | ThermalIO | CascadeProjects | dormant | unclear — review | P0P1P2P3 | 4/6 | no discoverable input→transform→output |
 | UniversalTrainer | CascadeProjects | dormant | unclear — review | P0·P2· | 2/6 | no discoverable input→transform→output |
 | vegas-sphere-experience | CascadeProjects | dormant | unclear — review | ·P1·P3 | 1/6 | no discoverable input→transform→output; too little code to carry a pipeline |
-| Visentrix website | Home Projects | dormant | — | ···· | 0/6 | no discoverable input→transform→output; too little code to carry a pipeline |
 | windsurf-project-2 | CascadeProjects | dormant | — | ···· | 0/6 | no discoverable input→transform→output; too little code to carry a pipeline |
 | windsurf-project-3 | CascadeProjects | dormant | — | ···· | 0/6 | no discoverable input→transform→output; too little code to carry a pipeline |
 | windsurf-project-4 | CascadeProjects | dormant | — | ···· | 0/6 | no discoverable input→transform→output; too little code to carry a pipeline |

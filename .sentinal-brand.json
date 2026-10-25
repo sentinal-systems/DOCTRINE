@@ -2,8 +2,6 @@
   "allow": [
     { "file": "bridge/brand.json", "reason": "the guard's own config declares the legacy terms it hunts" },
     { "file": "DOCTRINE.md", "match": "Visentrix lineage", "reason": "§1.3 is historical lineage record" },
-    { "file": "DOCTRINE.md", "match": "conceived under Visentrix", "reason": "§1.3 is historical lineage record" },
-    { "file": "bridge/profiles/Visentrix website.profile.json", "reason": "real legacy project dir name in census" },
-    { "file": "bridge/REGISTRY-DRAFT.md", "match": "Visentrix website", "reason": "real legacy project dir name in census" }
+    { "file": "DOCTRINE.md", "match": "conceived under Visentrix", "reason": "§1.3 is historical lineage record" }
   ]
 }
